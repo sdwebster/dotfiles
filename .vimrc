@@ -7,7 +7,7 @@
 " ----- VUNDLE START ------
 
 " A few required pre-vundle lines
-set nocompatible              " be iMproved, required
+set nocompatible              " be iMproved (non-VI-compatible), required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -40,6 +40,39 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
+
+" ----- MY VUNDLE PLUGINS -----
+"
+" ----- General -----
+
+" A ton of color schemes.
+" https://github.com/flazz/vim-colorschemes#current-colorschemes
+Bundle 'flazz/vim-colorschemes'
+
+" Fuzzy finder -- absolutely must have.
+Bundle 'kien/ctrlp.vim'
+
+" Support for easily toggling comments.
+Plugin 'tpope/vim-commentary'
+
+" ----- Language / Filetype Support -----
+
+" Catch-all for many languages
+Plugin 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = []
+
+" has better indentation than built-in JS support
+Plugin 'pangloss/vim-javascript'
+
+" has better indentation than built-in HTML support
+Plugin 'indenthtml.vim'
+
+" Good syntax for markdown
+Plugin 'tpope/vim-markdown'
+
+" LessCSS
+Plugin 'groenewege/vim-less'
+
 call vundle#end()            " required
 
 " A few required post-vundle lines
@@ -63,3 +96,7 @@ filetype plugin indent on    " required
 syntax enable
 set autoindent
 set number
+
+
+" Finally the color scheme, chosen from the list at flazz link above.
+colorscheme distinguished
