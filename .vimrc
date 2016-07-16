@@ -1,8 +1,8 @@
 " This is my .vimrc , which configures my settings for vim.
- 
+
 " Plugins managed by Vundle (https://github.com/VundleVim/Vundle.vim)
-" Vundle installation: 
-" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+" Vundle installation:
+" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 " ----- VUNDLE START ------
 
@@ -132,7 +132,7 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr> set gdefault " use the 
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
 
 " So we don't have to reach for escape to leave insert mode.
-" inoremap uh <esc>eader><space> :noh<cr>:call clearmatches()<cr> 
+" inoremap uh <esc>eader><space> :noh<cr>:call clearmatches()<cr>
 
 " bindings for easy split nav
 " nnoremap <C-h> <C-w>h
@@ -154,6 +154,15 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr> set gdefault " use the 
 " noremap k gk
 " " allow the cursor to go anywhere in visual block mode.
 " set virtualedit+=block
+
+" ----- From Will Butt -----
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+autocmd BufWritePre * :%s/\s\+$//e
 
 " ----- Plugin settings: -----
 
