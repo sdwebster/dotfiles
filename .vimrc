@@ -93,10 +93,75 @@ filetype plugin indent on    " required
 
 " ----- VUNDLE END ------
 
-syntax enable
+syntax on
 set autoindent
 set number
 
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab " use spaces instead of tabs.
+set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set shiftround " tab / shifting moves to closest tabstop.
+set autoindent " Match indents on new lines.
+set smartindent " Intellegently dedent / indent new lines based on rules.
+
+" We have VCS -- we don't need this stuff.
+set nobackup " We have vcs, we don't need backups.
+set nowritebackup " We have vcs, we don't need backups.
+set noswapfile " They're just annoying. Who likes them?
+
+" " don't nag me when hiding buffers
+" set hidden " allow me to have buffers with unsaved changes.
+" set autoread " when a file has changed on disk, just load it. Don't ask.
+
+" leader is a key that allows you to have your own "namespace" of keybindings.
+" " You'll see it a lot below as <leader>
+let mapleader = ","
+
+" " Make search more sane
+set ignorecase " case insensitive search
+set smartcase " If there are uppercase letters, become case-sensitive.
+set incsearch " live incremental searching
+set showmatch " live match highlighting
+set hlsearch " highlight matches
+"" Clear match highlighting
+noremap <leader><space> :noh<cr>:call clearmatches()<cr> set gdefault " use the `g` flag by default.
+
+
+" ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
+
+" So we don't have to reach for escape to leave insert mode.
+" inoremap uh <esc>eader><space> :noh<cr>:call clearmatches()<cr> 
+
+" bindings for easy split nav
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+
+" " Use sane regex's when searching
+" nnoremap / /\v
+" vnoremap / /\v
+
+" " Quick buffer switching - like cmd-tab'ing
+" nnoremap <leader><leader> <c-^>
+
+" " Visual line nav, not real line nav
+" " If you wrap lines, vim by default won't let you move down one line to the
+" " wrapped portion. This fixes that.
+" noremap j gj
+" noremap k gk
+" " allow the cursor to go anywhere in visual block mode.
+" set virtualedit+=block
+
+" ----- Plugin settings: -----
+
+" Map the key for toggling comments with vim-commentary
+nnoremap <leader>c <Plug>CommentaryLine
+
+" Let ctrlp have up to 30 results.
+let g:ctrlp_max_height = 30
 
 " Finally the color scheme, chosen from the list at flazz link above.
 colorscheme distinguished
