@@ -1,13 +1,13 @@
 " This is my .vimrc , which configures my settings for vim.
- 
+
 " Plugins managed by Vundle (https://github.com/VundleVim/Vundle.vim)
-" Vundle installation: 
-" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+" Vundle installation:
+" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 " ----- VUNDLE START ------
 
 " A few required pre-vundle lines
-set nocompatible              " be iMproved, required
+set nocompatible              " be iMproved (non-VI-compatible), required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -40,6 +40,39 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
+
+" ----- MY VUNDLE PLUGINS -----
+"
+" ----- General -----
+
+" A ton of color schemes.
+" https://github.com/flazz/vim-colorschemes#current-colorschemes
+Bundle 'flazz/vim-colorschemes'
+
+" Fuzzy finder -- absolutely must have.
+Bundle 'kien/ctrlp.vim'
+
+" Support for easily toggling comments.
+Plugin 'tpope/vim-commentary'
+
+" ----- Language / Filetype Support -----
+
+" Catch-all for many languages
+Plugin 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = []
+
+" has better indentation than built-in JS support
+Plugin 'pangloss/vim-javascript'
+
+" has better indentation than built-in HTML support
+Plugin 'indenthtml.vim'
+
+" Good syntax for markdown
+Plugin 'tpope/vim-markdown'
+
+" LessCSS
+Plugin 'groenewege/vim-less'
+
 call vundle#end()            " required
 
 " A few required post-vundle lines
@@ -60,6 +93,84 @@ filetype plugin indent on    " required
 
 " ----- VUNDLE END ------
 
-syntax enable
+syntax on
 set autoindent
 set number
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab " use spaces instead of tabs.
+set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set shiftround " tab / shifting moves to closest tabstop.
+set autoindent " Match indents on new lines.
+set smartindent " Intellegently dedent / indent new lines based on rules.
+
+" We have VCS -- we don't need this stuff.
+set nobackup " We have vcs, we don't need backups.
+set nowritebackup " We have vcs, we don't need backups.
+set noswapfile " They're just annoying. Who likes them?
+
+" " don't nag me when hiding buffers
+" set hidden " allow me to have buffers with unsaved changes.
+" set autoread " when a file has changed on disk, just load it. Don't ask.
+
+" leader is a key that allows you to have your own "namespace" of keybindings.
+" " You'll see it a lot below as <leader>
+let mapleader = ","
+
+" " Make search more sane
+set ignorecase " case insensitive search
+set smartcase " If there are uppercase letters, become case-sensitive.
+set incsearch " live incremental searching
+set showmatch " live match highlighting
+set hlsearch " highlight matches
+"" Clear match highlighting
+noremap <leader><space> :noh<cr>:call clearmatches()<cr> set gdefault " use the `g` flag by default.
+
+
+" ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
+
+" So we don't have to reach for escape to leave insert mode.
+" inoremap uh <esc>eader><space> :noh<cr>:call clearmatches()<cr>
+
+" bindings for easy split nav
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+
+" " Use sane regex's when searching
+" nnoremap / /\v
+" vnoremap / /\v
+
+" " Quick buffer switching - like cmd-tab'ing
+" nnoremap <leader><leader> <c-^>
+
+" " Visual line nav, not real line nav
+" " If you wrap lines, vim by default won't let you move down one line to the
+" " wrapped portion. This fixes that.
+" noremap j gj
+" noremap k gk
+" " allow the cursor to go anywhere in visual block mode.
+" set virtualedit+=block
+
+" ----- From Will Butt -----
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+autocmd BufWritePre * :%s/\s\+$//e
+
+" ----- Plugin settings: -----
+
+" Map the key for toggling comments with vim-commentary
+nnoremap <leader>c <Plug>CommentaryLine
+
+" Let ctrlp have up to 30 results.
+let g:ctrlp_max_height = 30
+
+" Finally the color scheme, chosen from the list at flazz link above.
+colorscheme distinguished
