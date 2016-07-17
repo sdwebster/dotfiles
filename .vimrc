@@ -164,8 +164,10 @@ autocmd BufReadPost *
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 autocmd BufWritePre * :%s/\s\+$//e
 
-" ----- Plugin settings: -----
+" ----- Plugin settings -----
 
+" Help vim-commentary out w/ some filetypes
+autocmd FileType groovy setlocal commentstring=//\ %s
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
 
