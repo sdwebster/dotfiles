@@ -55,6 +55,9 @@ Bundle 'kien/ctrlp.vim'
 " Support for easily toggling comments.
 Plugin 'tpope/vim-commentary'
 
+" ae, ie
+Plugin 'kana/vim-textobj-entire'
+
 " ----- Language / Filetype Support -----
 
 " Catch-all for many languages
@@ -126,7 +129,8 @@ set incsearch " live incremental searching
 set showmatch " live match highlighting
 set hlsearch " highlight matches
 "" Clear match highlighting
-noremap <leader><space> :noh<cr>:call clearmatches()<cr> set gdefault " use the `g` flag by default.
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+set gdefault " use the `g` flag by default.
 
 
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
