@@ -56,7 +56,7 @@ Bundle 'kien/ctrlp.vim'
 Plugin 'tpope/vim-commentary'
 
 " ae, ie
-Plugin 'kana/vim-textobj-entire'
+"Plugin 'kana/vim-textobj-entire'
 
 " ----- Language / Filetype Support -----
 
