@@ -64,8 +64,12 @@ Plugin 'tpope/vim-commentary'
 Plugin 'sheerun/vim-polyglot'
 " let g:polyglot_disabled = []
 
-" has better indentation than built-in JS support
+" has better indentation than built-in JS support (may already be installed
+" via polyglot)
 Plugin 'pangloss/vim-javascript'
+
+" Proper JSON filetype detection, and support. (polyglot may have its own)
+" Bundle 'leshill/vim-json'
 
 " has better indentation than built-in HTML support
 Plugin 'indenthtml.vim'
