@@ -2,7 +2,7 @@
 # Meta aliases
 alias prof="vim ~/.bash_profile"
 alias reprof=". ~/.bash_profile"
-alias vir="vim ~/.vimrc"
+alias vprof="vim ~/.vimrc"
 alias tprof="vim ~/.tmux.conf"
 alias subl="open -a Sublime\ Text\ 2"
 
