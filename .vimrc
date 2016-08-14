@@ -146,6 +146,12 @@ cnoremap <C-n> <Down>
 
 set shell=bash\ --login
 
+" In lieu of tpope/vim-unimpaired, because [ and ] are far away on Dvorak
+nnoremap <silent> <leader>h :bprevious<CR>
+nnoremap <silent> <leader>l :bnext<CR>
+nnoremap <silent> <leader>H :bfirst<CR>
+nnoremap <silent> <leader>L :blast<CR>
+nnoremap <silent> <leader>x :bdelete<CR>
 
 
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
