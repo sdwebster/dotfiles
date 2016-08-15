@@ -136,6 +136,27 @@ set hlsearch " highlight matches
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 set gdefault " use the `g` flag by default.
 
+" Consider, for bash-like tabbing:
+" set wildmode=longest, list
+" Or for zsh-like:
+" set wildmenu
+" set wildmode=full
+
+" longer history for ex mode history scrollback
+set history=200
+" filter your history scrollback by your partial input
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+set shell=bash\ --login
+
+" In lieu of tpope/vim-unimpaired, because [ and ] are far away on Dvorak
+nnoremap <silent> <leader>h :bprevious<CR>
+nnoremap <silent> <leader>l :bnext<CR>
+nnoremap <silent> <leader>H :bfirst<CR>
+nnoremap <silent> <leader>L :blast<CR>
+nnoremap <silent> <leader>x :bdelete<CR>
+
 
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
 
