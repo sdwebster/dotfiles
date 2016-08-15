@@ -28,3 +28,9 @@ cdl () {
 alias ae="ls -a"
 # [a]ll files visible to common [u]ser (e.g. in Finder)
 alias au="ls"
+
+### Scala
+# Run sbt with Java 7 (useful for Coursera course)
+alias sbt7="sbt -java-home `/usr/libexec/java_home -v 1.7`"
+
+
