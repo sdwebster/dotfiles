@@ -187,7 +187,8 @@ nnoremap <silent> <leader>x :bdelete<CR>
 " ----- From Will Butt -----
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") && !(expand('%:t') == "COMMIT_EDITMSG" && expand('%:p:h:t') == ".git") |
+     \ if line("'\"") > 0 && line("'\"") <= line("$") &&
+     \ !(expand('%:t') == "COMMIT_EDITMSG" && expand('%:p:h:t') == ".git") |
      \   exe "normal! g`\"" |
      \ endif
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
