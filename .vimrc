@@ -192,7 +192,11 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
+" Looser rule: if entire line is whitespace, delete whitespace, useful for vim
+" paragraph navigation
+autocmd BufWritePre * :%s/^\s\+$//e
+
 " ----- Plugin settings -----
 
 " Help vim-commentary out w/ some filetypes
