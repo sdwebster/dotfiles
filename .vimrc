@@ -108,7 +108,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab " use spaces instead of tabs.
-set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set smarttab " lets tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
@@ -196,7 +196,6 @@ autocmd BufReadPost *
 " Looser rule: if entire line is whitespace, delete whitespace, useful for vim
 " paragraph navigation
 autocmd BufWritePre * :%s/^\s\+$//e
-
 " ----- Plugin settings -----
 
 " Help vim-commentary out w/ some filetypes
@@ -204,8 +203,22 @@ autocmd FileType groovy setlocal commentstring=//\ %s
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
 
-" Let ctrlp have up to 30 results.
+" Let CtrlP have up to 30 results.
 let g:ctrlp_max_height = 30
+
+" Examples of exclusions from CtrlP
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+" set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"   \ 'file': '\v\.(exe|so|dll)$',
+"   \ 'link': 'some_bad_symbolic_links',
+"   \ }
+
+" My CtrlP exclusions
+set wildignore+=*/.git/*,*/dist/*,*/.idea/*,*/.DS_Store,*.swp,*.class
 
 " Finally the color scheme, chosen from the list at flazz link above.
 colorscheme distinguished
