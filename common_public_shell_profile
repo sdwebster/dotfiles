@@ -43,6 +43,11 @@ cdl () {
   ls
 }
 
+tosu () {
+  touch "$1"
+  subl "$1"
+}
+
 # dvorak home row synonym for ls: [a]ll files, [e]very one
 alias ae="ls -a"
 # [a]ll files visible to common [u]ser (e.g. in Finder)
