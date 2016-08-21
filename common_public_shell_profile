@@ -6,13 +6,16 @@ alias vprof="vim ~/.vimrc"
 alias tprof="vim ~/.tmux.conf"
 alias subl="open -a Sublime\ Text\ 2"
 
+
 ## Clear terminal window (without actually deleting the old buffer)
 alias rebuff="clear && printf '\e[3J'"
+
 
 ## Navigational aliases for general OS X
 alias de="cd ~/Desktop"
 alias ds="cd ~/Documents"
 alias dwl="cd ~/Downloads"
+
 
 # View & grab the latest from your Downloads & Desktop
 alias lsd="ls -tr $HOME/Downloads" # sorted most- to least-recently modified
