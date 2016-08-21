@@ -1,3 +1,10 @@
+# If you find these aliases and functions useful, you
+# may copy them into your ~/.bash_profile or ~/.zshrc.
+# I source them to my shell profile with the following lines:
+#
+# export DOTFILE_HOME="$HOME/repos/sdwebster/dotfiles"
+# source $DOTFILE_HOME/common_public_shell_profile
+# alias dot="cd $DOTFILE_HOME"
 
 # Meta aliases
 alias prof="vim ~/.bash_profile"
