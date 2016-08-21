@@ -1,10 +1,17 @@
 # If you find these aliases and functions useful, you
 # may copy them into your ~/.bash_profile or ~/.zshrc.
-# I source them to my shell profile with the following lines:
+# Since I'm maintaining this as a separate file to share,
+# I source it to my shell profile with the following lines:
 #
 # export DOTFILE_HOME="$HOME/repos/sdwebster/dotfiles"
 # source $DOTFILE_HOME/common_public_shell_profile
 # alias dot="cd $DOTFILE_HOME"
+
+# Thanks to Josh Wyatt for getting me started with shell
+# configuration -- everyone check out
+# https://github.com/joshwyatt/keyboard_shortcuts
+# and
+# https://github.com/joshwyatt/bash_profile
 
 # Meta aliases
 alias prof="vim ~/.bash_profile"
@@ -17,12 +24,14 @@ alias subl="open -a Sublime\ Text\ 2"
 ## Clear terminal window (without actually deleting the old buffer)
 alias rebuff="clear && printf '\e[3J'"
 
+## Lock screen w/o logout
+alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
 
 ## Navigational aliases for general OS X
 alias de="cd ~/Desktop"
 alias ds="cd ~/Documents"
 alias dwl="cd ~/Downloads"
-
 
 # View & grab the latest from your Downloads & Desktop
 alias lsd="ls -tr $HOME/Downloads" # sorted most- to least-recently modified
@@ -35,9 +44,6 @@ alias mldk="mv \"$HOME/Desktop/$(lsdk | tail -1)\""
 
 ## Find the dimensions of an image (check out "$ man sips" for more awesome)
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth" # e.g. $ pic-dimensions site-logo.png
-
-## Lock screen w/o logout
-alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
 # Files
 mkcd () {
@@ -61,7 +67,7 @@ alias ae="ls -a"
 alias au="ls"
 
 ### Scala
-# Run sbt with Java 7 (useful for Coursera course)
+# Run sbt with Java 7 (even with Java 8 running on computer)
+# (useful for Coursera course)
 alias sbt7="sbt -java-home `/usr/libexec/java_home -v 1.7`"
-
 
