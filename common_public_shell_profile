@@ -34,34 +34,28 @@ alias ds="cd ~/Documents"
 alias dwl="cd ~/Downloads"
 
 # View & grab the latest from your Downloads & Desktop
-alias lsd="ls -tr $HOME/Downloads" # sorted most- to least-recently modified
+# sorted most- to least-recently modified
+alias lsl="ls -tr $HOME/Downloads"
 # copy last download, e.g. $ cldl .
 cldl () {
-  latest_download="$(lsd | tail -1)"
-  echo "latest download: $latest_download"
+  latest_download="$(ldl | tail -1)"
   cp "$HOME/Downloads/$latest_download" "$1"
 }
-# move last download, e.g. $ mldl .
+# e.g. $ mldl .
 mldl () {
-  latest_download="$(lsd | tail -1)"
-  echo "latest download: $latest_download"
+  latest_download="$(ldl | tail -1)"
   mv "$HOME/Downloads/$latest_download" "$1"
 }
 
-alias lsdk="ls -tr $HOME/Desktop" # sorted most- to least-recently modified
-cldl () {
-  latest_desktop="$(lsdk | tail -1)"
-  echo "latest desktop: $latest_desktop"
+alias ldk="ls -tr $HOME/Desktop"
+cldk () {
+  latest_desktop="$(ldk | tail -1)"
   cp "$HOME/Desktops/$latest_desktop" "$1"
 }
-mldl () {
-  latest_desktop="$(lsdk | tail -1)"
-  echo "latest desktop: $latest_desktop"
+mldk () {
+  latest_desktop="$(ldk | tail -1)"
   mv "$HOME/Desktops/$latest_desktop" "$1"
 }
-
-alias cldk="cp \"$HOME/Desktop/$(lsdk | tail -1)\""
-alias mldk="mv \"$HOME/Desktop/$(lsdk | tail -1)\""
 
 ## Find the dimensions of an image (check out "$ man sips" for more awesome)
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth" # e.g. $ pic-dimensions site-logo.png
