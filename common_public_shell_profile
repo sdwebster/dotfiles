@@ -41,9 +41,25 @@ cldl () {
   echo "latest download: $latest_download"
   cp "$HOME/Downloads/$latest_download" "$1"
 }
-alias mldl="mv \"$HOME/Downloads/$(lsd | tail -1)\"" # move last download, e.g. $ mldl .
+# move last download, e.g. $ mldl .
+mldl () {
+  latest_download="$(lsd | tail -1)"
+  echo "latest download: $latest_download"
+  mv "$HOME/Downloads/$latest_download" "$1"
+}
 
 alias lsdk="ls -tr $HOME/Desktop" # sorted most- to least-recently modified
+cldl () {
+  latest_desktop="$(lsdk | tail -1)"
+  echo "latest desktop: $latest_desktop"
+  cp "$HOME/Desktops/$latest_desktop" "$1"
+}
+mldl () {
+  latest_desktop="$(lsdk | tail -1)"
+  echo "latest desktop: $latest_desktop"
+  mv "$HOME/Desktops/$latest_desktop" "$1"
+}
+
 alias cldk="cp \"$HOME/Desktop/$(lsdk | tail -1)\""
 alias mldk="mv \"$HOME/Desktop/$(lsdk | tail -1)\""
 
