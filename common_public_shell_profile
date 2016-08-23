@@ -35,7 +35,12 @@ alias dwl="cd ~/Downloads"
 
 # View & grab the latest from your Downloads & Desktop
 alias lsd="ls -tr $HOME/Downloads" # sorted most- to least-recently modified
-alias cldl="cp \"$HOME/Downloads/$(lsd | tail -1)\"" # copy last download, e.g. $ cldl .
+# copy last download, e.g. $ cldl .
+cldl () {
+  latest_download="$(lsd | tail -1)"
+  echo "latest download: $latest_download"
+  cp "$HOME/Downloads/$latest_download" "$1"
+}
 alias mldl="mv \"$HOME/Downloads/$(lsd | tail -1)\"" # move last download, e.g. $ mldl .
 
 alias lsdk="ls -tr $HOME/Desktop" # sorted most- to least-recently modified
