@@ -82,9 +82,9 @@ tosu () {
   subl "$1"
 }
 
-# dvorak home row synonym for ls: [a]ll files, [e]very one
+# dvorak home row synonym for ls: [a]ll files, [e]very one. Not recommended for QWERTY users
 alias ae="ls -a"
-# [a]ll files visible to common [u]ser (e.g. in Finder)
+# [a]ll files visible to common [u]ser (e.g. in Finder). Not recommended for QWERTY users
 alias au="ls"
 
 ### Scala
