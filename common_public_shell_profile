@@ -61,6 +61,9 @@ mldk () {
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth" # e.g. $ pic-dimensions site-logo.png
 
 # Files
+
+alias ll="ls -lG"
+
 mkcd () {
   mkdir "$1"
   cd "$1"
@@ -76,9 +79,9 @@ tosu () {
   subl "$1"
 }
 
-# dvorak home row synonym for ls: [a]ll files, [e]very one
+# dvorak home row synonym for ls: [a]ll files, [e]very one. Not recommended for QWERTY users
 alias ae="ls -a"
-# [a]ll files visible to common [u]ser (e.g. in Finder)
+# [a]ll files visible to common [u]ser (e.g. in Finder). Not recommended for QWERTY users
 alias au="ls"
 
 ### Scala
