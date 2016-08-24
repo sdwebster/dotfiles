@@ -67,6 +67,9 @@ alias mldk="mv \"$HOME/Desktop/$(lsdk | tail -1)\""
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth" # e.g. $ pic-dimensions site-logo.png
 
 # Files
+
+alias ll="ls -lG"
+
 mkcd () {
   mkdir "$1"
   cd "$1"
