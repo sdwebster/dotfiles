@@ -125,6 +125,8 @@ set noswapfile " They're just annoying. Who likes them?
 " leader is a key that allows you to have your own "namespace" of keybindings.
 " " You'll see it a lot below as <leader>
 let mapleader = ","
+" Allow to use comma for reversing " by doubling up
+noremap <leader>, ,
 
 " " Make search more sane
 set ignorecase " case insensitive search
