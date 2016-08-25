@@ -20,7 +20,8 @@
 #   alias prof="subl ~/.bash_profile"
 # (uses the 'subl' alias here)
 #
-# If you use zsh, reassign reprof, which refreshes your shell settings:
+# "reprof" lets you refresh your shell settings w/o closing your Terminal tab
+# If you use zsh, reassign reprof to:
 #   alias reprof=". ~/.zshrc"
 alias prof="vim ~/.bash_profile"
 alias reprof=". ~/.bash_profile"
@@ -36,12 +37,11 @@ alias dwl="cd ~/Downloads"
 
 # View & grab the latest from your Downloads & Desktop
 # sorted most- to least-recently modified
-# TODO: make this work for dirs, not just regular files
 alias ldl="ls -tr $HOME/Downloads"
 # copy last download, e.g. $ cldl .
 cldl () {
   latest_download="$(ldl | tail -1)"
-  cp "$HOME/Downloads/$latest_download" "$1"
+  cp -r "$HOME/Downloads/$latest_download" "$1"
 }
 # e.g. $ mldl .
 mldl () {
@@ -52,7 +52,7 @@ mldl () {
 alias ldk="ls -tr $HOME/Desktop"
 cldk () {
   latest_desktop="$(ldk | tail -1)"
-  cp "$HOME/Desktops/$latest_desktop" "$1"
+  cp -r "$HOME/Desktops/$latest_desktop" "$1"
 }
 mldk () {
   latest_desktop="$(ldk | tail -1)"
