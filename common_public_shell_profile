@@ -14,7 +14,7 @@
 # and
 # https://github.com/joshwyatt/bash_profile
 
-# Meta aliases
+#### Meta aliases
 alias prof="vim ~/.bash_profile"
 alias reprof=". ~/.bash_profile"
 alias vprof="vim ~/.vimrc"
@@ -22,20 +22,14 @@ alias tprof="vim ~/.tmux.conf"
 alias subl="open -a Sublime\ Text\ 2"
 
 
-## Clear terminal window (without actually deleting the old buffer)
-alias rebuff="clear && printf '\e[3J'"
-
-## Lock screen w/o logout
-alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
-
-
-## Navigational aliases for general OS X
+#### Navigation aliases for general OS X
 alias de="cd ~/Desktop"
 alias ds="cd ~/Documents"
 alias dwl="cd ~/Downloads"
 
 # View & grab the latest from your Downloads & Desktop
 # sorted most- to least-recently modified
+# TODO: make this work for dirs, not just regular files
 alias ldl="ls -tr $HOME/Downloads"
 # copy last download, e.g. $ cldl .
 cldl () {
@@ -58,11 +52,16 @@ mldk () {
   mv "$HOME/Desktops/$latest_desktop" "$1"
 }
 
+## Clear terminal window (without actually deleting the old buffer)
+alias rebuff="clear && printf '\e[3J'"
+
+## Lock screen w/o logout
+alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
 ## Find the dimensions of an image (check out "$ man sips" for more awesome)
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth" # e.g. $ pic-dimensions site-logo.png
 
-# Files
-
+#### Files
 alias ll="ls -lG"
 
 mkcd () {
@@ -85,8 +84,69 @@ alias ae="ls -a"
 # [a]ll files visible to common [u]ser (e.g. in Finder). Not recommended for QWERTY users
 alias au="ls"
 
-### Scala
+#### OrientDB - easily start your local OrientDB (ACTION REQUIRED: change the version number to match yours)
+alias orient="cd /data/orientdb-community-2.1.4/bin/ && ./server.sh"
+
+#### Git related aliases & functions 
+# Note: many of these are redundant w/ oh-my-zsh's git plugin, which is generally more sophisticated
+# TODO: separate out which of these are covered by oh-my-zsh plugin, and which are novel
+alias gcl="git clone"
+alias gb="git branch"
+alias gr="git remote"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gcam="git commit --amend"
+alias gl="git log"
+alias glo="git log --pretty=oneline"
+alias glu="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+alias gla="git log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'"
+
+alias go="git checkout"
+alias gb="git branch"
+alias greleases="gb -a | grep release"
+alias gv='gb -a | grep "release\|hotfix"'
+alias gm="git merge"
+alias gd="git diff"
+alias gdn="git diff --name-only"
+alias gt="git tag"
+
+alias grs="git reset"
+alias grv="git revert"
+alias grb="git rebase"
+alias gpo="git push origin"
+alias gob="git checkout -b"
+alias gfpa="git fetch -pa"
+alias gprbusm="git pull --rebase upstream master"
+alias grsdss="git reset .DS_Store"
+alias grsconf="git reset grails-app/conf/Config.groovy"
+alias grbc="git rebase --continue"
+alias grbih2="git rebase -i HEAD~2"
+
+alias gpom="git push origin master"
+alias gpum="git pull origin master"
+alias gpusm="git pull upstream master"
+alias gprbod="git pull --rebase origin develop"
+
+## Push one git feature branch
+# Note: this generally became obsolete once push.default was switched to 'simple' instead of 'matching'
+gpof () {
+  git push origin "$1":"$1"
+}
+
+## "kut" a new branch, here and remote
+# Warning: before running, need to be confident upstream branch does not exist yet
+gkb () {
+  go -b "$1" && git push origin "$1" && gb --set-upstream-to=origin/"$1" && gl
+}
+
+## kut a branch from
+gkbf () {
+  go "$2" && gkb "$1"
+}
+
+#### Scala
 # Run sbt with Java 7 (even with Java 8 running on computer)
-# (useful for Coursera course)
+# (useful for Odersky's Coursera functional programming course)
 alias sbt7="sbt -java-home `/usr/libexec/java_home -v 1.7`"
 
