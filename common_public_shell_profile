@@ -14,13 +14,20 @@
 # and
 # https://github.com/joshwyatt/bash_profile
 
-#### Meta aliases
+#### Meta aliases - SUPER useful
+# Note: you may prefer to edit your conf files with a different text editor, e.g. Sublime. 
+# If so, replace these meta aliases with e.g.
+#   alias prof="subl ~/.bash_profile"
+# (uses the 'subl' alias here)
+#
+# If you use zsh, reassign reprof:
+#   alias reprof=". ~/.zshrc"
 alias prof="vim ~/.bash_profile"
+alias zprof="vim ~/.zshrc"
 alias reprof=". ~/.bash_profile"
-alias vprof="vim ~/.vimrc"
-alias tprof="vim ~/.tmux.conf"
+alias vprof="vim ~/.vimrc" # for vim users
+alias tprof="vim ~/.tmux.conf" # for tmux users
 alias subl="open -a Sublime\ Text\ 2"
-
 
 #### Navigation aliases for general OS X
 alias de="cd ~/Desktop"
