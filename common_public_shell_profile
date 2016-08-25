@@ -1,5 +1,5 @@
 # If you find these aliases and functions useful, you
-# may copy them into your ~/.bash_profile or ~/.zshrc.
+# may copy them right into your ~/.bash_profile or ~/.zshrc.
 # Since I'm maintaining this as a separate file to share,
 # I source it to my shell profile with the following lines:
 #
@@ -20,11 +20,11 @@
 #   alias prof="subl ~/.bash_profile"
 # (uses the 'subl' alias here)
 #
-# If you use zsh, reassign reprof:
+# If you use zsh, reassign reprof, which refreshes your shell settings:
 #   alias reprof=". ~/.zshrc"
 alias prof="vim ~/.bash_profile"
-alias zprof="vim ~/.zshrc"
 alias reprof=". ~/.bash_profile"
+alias zprof="vim ~/.zshrc" # for zsh users
 alias vprof="vim ~/.vimrc" # for vim users
 alias tprof="vim ~/.tmux.conf" # for tmux users
 alias subl="open -a Sublime\ Text\ 2"
@@ -59,6 +59,7 @@ mldk () {
   mv "$HOME/Desktops/$latest_desktop" "$1"
 }
 
+#### Miscelaneous system actions
 ## Clear terminal window (without actually deleting the old buffer)
 alias rebuff="clear && printf '\e[3J'"
 
@@ -66,7 +67,8 @@ alias rebuff="clear && printf '\e[3J'"
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
 ## Find the dimensions of an image (check out "$ man sips" for more awesome)
-alias pic-dimensions="sips -g pixelHeight -g pixelWidth" # e.g. $ pic-dimensions site-logo.png
+# e.g. $ pic-dimensions site-logo.png
+alias pic-dimensions="sips -g pixelHeight -g pixelWidth"
 
 #### Files
 alias ll="ls -lG"
@@ -94,7 +96,7 @@ alias au="ls"
 #### OrientDB - easily start your local OrientDB (ACTION REQUIRED: change the version number to match yours)
 alias orient="cd /data/orientdb-community-2.1.4/bin/ && ./server.sh"
 
-#### Git related aliases & functions 
+#### Git-related aliases & functions 
 # Note: many of these are redundant w/ oh-my-zsh's git plugin, which is generally more sophisticated
 # TODO: separate out which of these are covered by oh-my-zsh plugin, and which are novel
 alias gcl="git clone"
