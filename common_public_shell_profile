@@ -6,6 +6,7 @@
 # export DOTFILE_HOME="$HOME/repos/sdwebster/dotfiles"
 # source $DOTFILE_HOME/common_public_shell_profile
 # alias dot="cd $DOTFILE_HOME"
+# alias pprof="vim $DOTFILE_HOME/common_public_shell_profile"
 
 # Thanks to Josh Wyatt for getting me started with shell
 # configuration -- everyone check out
