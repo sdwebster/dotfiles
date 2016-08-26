@@ -186,22 +186,31 @@ nnoremap <silent> <leader>x :bdelete<CR>
 " " allow the cursor to go anywhere in visual block mode.
 " set virtualedit+=block
 
-" ----- From Will Butt -----
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") &&
-     \ !(expand('%:t') == "COMMIT_EDITMSG" && expand('%:p:h:t') == ".git") |
-     \   exe "normal! g`\"" |
-     \ endif
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-" autocmd BufWritePre * :%s/\s\+$//e
-" Looser rule: if entire line is whitespace, delete whitespace, useful for vim
-" paragraph navigation
-autocmd BufWritePre * :%s/^\s\+$//e
+augroup vimrcEx
+    " clear & recreate this group each time .vimrc is re-sourced
+    autocmd!
+    " ----- From Will Butt -----
+    " Return to last edit position when opening files (You want this!)
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") &&
+        \ !(expand('%:t') == "COMMIT_EDITMSG" && expand('%:p:h:t') == ".git") |
+        \   exe "normal! g`\"" |
+        \ endif
+    " Delete trailing white space on save, useful for Python and CoffeeScript ;)
+    " autocmd BufWritePre * :%s/\s\+$//e
+    " Looser rule: if entire line is whitespace, delete whitespace, useful for vim
+    " paragraph navigation
+    autocmd BufWritePre * :%s/^\s\+$//e
+augroup END
+
 " ----- Plugin settings -----
 
 " Help vim-commentary out w/ some filetypes
-autocmd FileType groovy setlocal commentstring=//\ %s
+augroup filetypes
+    autocmd!
+    autocmd FileType groovy setlocal commentstring=//\ %s
+augroup END
+
 " Map the key for toggling comments with vim-commentary
 nnoremap <leader>c <Plug>CommentaryLine
 
