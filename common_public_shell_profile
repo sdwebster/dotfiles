@@ -113,8 +113,6 @@ alias gla="git log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Cres
 
 alias go="git checkout"
 alias gb="git branch"
-alias greleases="gb -a | grep release"
-alias gv='gb -a | grep "release\|hotfix"'
 alias gm="git merge"
 alias gd="git diff"
 alias gdn="git diff --name-only"
@@ -126,6 +124,8 @@ alias grb="git rebase"
 alias gpo="git push origin"
 alias gob="git checkout -b"
 alias gfpa="git fetch -pa"
+alias greleases="gfpa && gb -a | grep release"
+alias gv='gfpa && gb -a | grep "release\|hotfix"'
 alias gprbusm="git pull --rebase upstream master"
 alias grsdss="git reset .DS_Store"
 alias grsconf="git reset grails-app/conf/Config.groovy"
