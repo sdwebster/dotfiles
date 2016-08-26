@@ -159,6 +159,8 @@ nnoremap <silent> <leader>H :bfirst<CR>
 nnoremap <silent> <leader>L :blast<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
 
+" Get a visual on misbehaved/trailing whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
 
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
 
