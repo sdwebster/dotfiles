@@ -28,7 +28,7 @@ alias reprof=". ~/.bash_profile"
 alias zprof="vim ~/.zshrc" # for zsh users
 alias vprof="vim ~/.vimrc" # for vim users
 alias tprof="vim ~/.tmux.conf" # for tmux users
-alias subl="open -a Sublime\ Text\ 2"
+alias subl="open -a Sublime\ Text\ 2" # for Sublime users
 
 #### Navigation aliases for general OS X
 alias de="cd ~/Desktop"
