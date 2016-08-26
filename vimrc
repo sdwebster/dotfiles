@@ -39,8 +39,6 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" All of your Plugins must be added before the following line
-
 " ----- MY VUNDLE PLUGINS -----
 "
 " ----- General -----
@@ -79,6 +77,8 @@ Plugin 'tpope/vim-markdown'
 
 " LessCSS
 Plugin 'groenewege/vim-less'
+
+" All of your vundle Plugins must be added before the following line
 
 call vundle#end()            " required
 
