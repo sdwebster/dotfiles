@@ -37,25 +37,27 @@ alias dwl="cd ~/Downloads"
 
 # View & grab the latest from your Downloads & Desktop
 # sorted most- to least-recently modified
-alias ldl="ls -tr $HOME/Downloads"
+alias ldla="ls -tr $HOME/Downloads"
+alias ldl="ldla | tail"
 # copy last download, e.g. $ cldl .
 cldl () {
-  latest_download="$(ldl | tail -1)"
+  latest_download="$(ldla | tail -1)"
   cp -r "$HOME/Downloads/$latest_download" "$1"
 }
 # e.g. $ mldl .
 mldl () {
-  latest_download="$(ldl | tail -1)"
+  latest_download="$(ldla | tail -1)"
   mv "$HOME/Downloads/$latest_download" "$1"
 }
 
-alias ldk="ls -tr $HOME/Desktop"
+alias ldka="ls -tr $HOME/Desktop"
+alias ldk="ldka | tail"
 cldk () {
-  latest_desktop="$(ldk | tail -1)"
+  latest_desktop="$(ldka | tail -1)"
   cp -r "$HOME/Desktops/$latest_desktop" "$1"
 }
 mldk () {
-  latest_desktop="$(ldk | tail -1)"
+  latest_desktop="$(ldka | tail -1)"
   mv "$HOME/Desktops/$latest_desktop" "$1"
 }
 
