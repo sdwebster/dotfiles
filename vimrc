@@ -162,6 +162,12 @@ nnoremap <silent> <leader>x :bdelete<CR>
 " Get a visual on misbehaved/trailing whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
+"" Motions
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+
+
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
 
 " So we don't have to reach for escape to leave insert mode.
