@@ -81,6 +81,9 @@ alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/
 # e.g. $ pic-dimensions site-logo.png
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth"
 
+## Useful for grep (similar to how Sublime ⌘ - F remembers your favorite excluded dirs )
+alias grepx="grep -nr --exclude-dir={node_modules,bower_components,dist,.git,.tmp,logs,web-app,target} --exclude={\*.jck,\*.min.js,index_compiled.css}"
+
 #### Files
 alias ll="ls -lG"
 
