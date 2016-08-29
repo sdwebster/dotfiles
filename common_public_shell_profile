@@ -7,6 +7,11 @@
 # source $DOTFILE_HOME/common_public_shell_profile
 # alias dot="cd $DOTFILE_HOME"
 # alias pprof="vim $DOTFILE_HOME/common_public_shell_profile"
+#
+# # then I overwrite locations of other configurations such as vim, tmux
+# alias vprof="vim $DOTFILE_HOME/vimrc"
+# alias tprof="vim $DOTFILE_HOME/tmux.conf"
+# alias bprof="vim ~/.bash_profile"
 
 # Thanks to Josh Wyatt for getting me started with shell
 # configuration -- everyone check out
