@@ -166,7 +166,7 @@ nnoremap <silent> <leader>x :bdelete<CR>
 set list listchars=tab:»·,trail:·,nbsp:·
 
 "" Motions
-" move to beginning/end of line
+" move to beginning/end of line (Doug Black)
 nnoremap B ^
 nnoremap E $
 
@@ -210,7 +210,7 @@ augroup vimrcEx
     " Delete trailing white space on save, useful for Python and CoffeeScript ;)
     " autocmd BufWritePre * :%s/\s\+$//e
     " Looser rule: if entire line is whitespace, delete whitespace, useful for vim
-    " paragraph navigation
+    " paragraph jumps
     autocmd BufWritePre * :%s/^\s\+$//e
 augroup END
 
