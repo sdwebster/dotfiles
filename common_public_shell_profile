@@ -1,5 +1,7 @@
 # If you find these aliases and functions useful, you
 # may copy them right into your ~/.bash_profile or ~/.zshrc.
+
+#### Maintenance notes
 # Since I'm maintaining this as a separate file to share,
 # I source it to my shell profile with the following lines:
 #
@@ -13,11 +15,13 @@
 # alias tprof="vim $DOTFILE_HOME/tmux.conf"
 # alias bprof="vim ~/.bash_profile"
 
+#### Attribution
 # Thanks to Josh Wyatt for getting me started with shell
 # configuration -- everyone check out
 # https://github.com/joshwyatt/keyboard_shortcuts
 # and
 # https://github.com/joshwyatt/bash_profile
+
 
 #### Meta aliases - SUPER useful
 # Note: you may prefer to edit your conf files with a different text editor, e.g. Sublime. 
@@ -35,7 +39,7 @@ alias vprof="vim ~/.vimrc" # for vim users
 alias tprof="vim ~/.tmux.conf" # for tmux users
 alias subl="open -a Sublime\ Text\ 2" # for Sublime users
 
-#### Navigation aliases for general OS X
+#### Navigation aliases for general OS X (and maybe some Linux)
 alias de="cd ~/Desktop"
 alias ds="cd ~/Documents"
 alias dwl="cd ~/Downloads"
@@ -67,13 +71,13 @@ mldk () {
 }
 
 #### Miscelaneous system actions
-## Clear terminal window (without actually deleting the old buffer)
+# Clear terminal window (without actually deleting the old buffer)
 alias rebuff="clear && printf '\e[3J'"
 
-## Lock screen w/o logout
+# Lock screen w/o logout
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
-## Find the dimensions of an image (check out "$ man sips" for more awesome)
+# Find the dimensions of an image (check out "$ man sips" for more awesome)
 # e.g. $ pic-dimensions site-logo.png
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth"
 
