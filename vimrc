@@ -1,4 +1,7 @@
-" This is my .vimrc , which configures my settings for vim.
+" This is my ~/.vimrc , which configures my settings for vim.
+" (actually, my home ~/.vimrc simply sources this shared file:
+    " source $DOTFILE_HOME/vimrc
+" )
 
 " Plugins managed by Vundle (https://github.com/VundleVim/Vundle.vim)
 " Vundle installation:
