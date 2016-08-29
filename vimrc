@@ -165,6 +165,8 @@ nnoremap <silent> <leader>H :bfirst<CR>
 nnoremap <silent> <leader>L :blast<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
 
+nnoremap <silent> <leader>r :source $MYVIMRC<CR>
+
 " Get a visual on misbehaved/trailing whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
@@ -172,6 +174,14 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " move to beginning/end of line (Doug Black)
 nnoremap B ^
 nnoremap E $
+
+" Searching
+" have grep exclude certain dirs, filetypes by default
+" set grepprg=grep\ -nr\ $*\ /dev/null
+set grepprg=grep\ -nr\ --exclude-dir={node_modules,bower_components,dist,.git,.tmp,logs,web-app,target}\ --exclude={\*.jck,\*.min.js,index_compiled.css}\ $*\ /dev/null
+
+" Configure gf
+set suffixesadd=.groovy
 
 
 " ----- Other suggestions from pthrasher/beginner.vimrc.vim that I may adopt soon: -----
@@ -243,7 +253,7 @@ let g:ctrlp_max_height = 30
 "   \ }
 
 " My CtrlP exclusions
-set wildignore+=*/.git/*,*/dist/*,*/.idea/*,*/.DS_Store,*.swp,*.class
+set wildignore+=*/.git/*,*/dist/*,*/target/*,*/.idea/*,*/.DS_Store,*.swp,*.class
 
 " Finally the color scheme, chosen from the list at flazz link above.
 colorscheme distinguished
