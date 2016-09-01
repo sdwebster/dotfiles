@@ -224,7 +224,7 @@ augroup vimrcEx
     " autocmd BufWritePre * :%s/\s\+$//e
     " Looser rule: if entire line is whitespace, delete whitespace, useful for vim
     " paragraph jumps
-    autocmd BufWritePre * :%s/^\s\+$//e
+    " autocmd BufWritePre * :%s/^\s\+$//e
 augroup END
 
 " ----- Plugin settings -----
