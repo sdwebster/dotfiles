@@ -178,7 +178,7 @@ nnoremap E $
 " Searching
 " have grep exclude certain dirs, filetypes by default
 " set grepprg=grep\ -nr\ $*\ /dev/null
-set grepprg=grep\ -nr\ --exclude-dir={node_modules,bower_components,dist,.git,.tmp,logs,web-app,target}\ --exclude={\*.jck,\*.min.js,index_compiled.css}\ $*\ /dev/null
+set grepprg=grep\ -nr\ --exclude-dir={node_modules,bower_components,dist,dist_bundle,.git,.tmp,logs,web-app,target}\ --exclude={\*.jck,\*.min.js,\*.min.css,index_compiled.css}\ $*\ /dev/null
 
 " Configure gf
 set suffixesadd=.groovy
