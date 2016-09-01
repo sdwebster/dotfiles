@@ -130,9 +130,9 @@ set noswapfile " They're just annoying. Who likes them?
 
 " leader is a key that allows you to have your own "namespace" of keybindings.
 " " You'll see it a lot below as <leader>
-let mapleader = ","
-" Allow to use comma for reversing " by doubling up
-noremap <leader>, ,
+let mapleader = "e"
+" Allow to use "en" for "e" as in end
+noremap <leader>n e
 
 " " Make search more sane
 set ignorecase " case insensitive search
@@ -166,6 +166,8 @@ nnoremap <silent> <leader>L :blast<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
 
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
+nnoremap <silent> <leader>e :Rexplore<CR>
+nnoremap <silent> <leader>o :Explore<CR>
 
 " Get a visual on misbehaved/trailing whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
