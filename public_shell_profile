@@ -6,9 +6,9 @@
 # I source it to my shell profile with the following lines:
 #
 # export DOTFILE_HOME="$HOME/repos/sdwebster/dotfiles"
-# source $DOTFILE_HOME/common_public_shell_profile
+# source $DOTFILE_HOME/public_shell_profile
 # alias dot="cd $DOTFILE_HOME"
-# alias pprof="vim $DOTFILE_HOME/common_public_shell_profile"
+# alias pprof="vim $DOTFILE_HOME/public_shell_profile"
 #
 # # then I overwrite locations of other configurations such as vim, tmux
 # alias vprof="vim $DOTFILE_HOME/vimrc"
