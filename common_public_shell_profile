@@ -173,3 +173,9 @@ gkbf () {
 # (useful for Odersky's Coursera functional programming course)
 alias sbt7="sbt -java-home `/usr/libexec/java_home -v 1.7`"
 
+
+#### Scheme
+# MIT Scheme REPL is better w/ rlwrap
+# See https://thesabbir.com/setting-up-mit-scheme-on-os-x-yosemite-with-homebrew/
+alias sch="rlwrap -r -c -f $DOTFILE_HOME/resources/bobbyno/mit_scheme_bindings.txt scheme"
+
