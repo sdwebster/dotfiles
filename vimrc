@@ -130,9 +130,11 @@ set noswapfile " They're just annoying. Who likes them?
 
 " leader is a key that allows you to have your own "namespace" of keybindings.
 " " You'll see it a lot below as <leader>
-let mapleader = "e"
-" Allow to use "en" for "e" as in end
-noremap <leader>n e
+let mapleader = " "
+" TODO: figure out if there's a need to remap space...usually it's
+" just a synonym for "l"
+" " Allow to use "en" for "e" as in end
+" noremap <leader>n e
 
 " " Make search more sane
 set ignorecase " case insensitive search
