@@ -63,11 +63,11 @@ alias ldka="ls -tr $HOME/Desktop"
 alias ldk="ldka | tail"
 cldk () {
   latest_desktop="$(ldka | tail -1)"
-  cp -r "$HOME/Desktops/$latest_desktop" "$1"
+  cp -r "$HOME/Desktop/$latest_desktop" "$1"
 }
 mldk () {
   latest_desktop="$(ldka | tail -1)"
-  mv "$HOME/Desktops/$latest_desktop" "$1"
+  mv "$HOME/Desktop/$latest_desktop" "$1"
 }
 
 #### Miscelaneous system actions
