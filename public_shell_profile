@@ -63,11 +63,11 @@ alias ldka="ls -tr $HOME/Desktop"
 alias ldk="ldka | tail"
 cldk () {
   latest_desktop="$(ldka | tail -1)"
-  cp -r "$HOME/Desktops/$latest_desktop" "$1"
+  cp -r "$HOME/Desktop/$latest_desktop" "$1"
 }
 mldk () {
   latest_desktop="$(ldka | tail -1)"
-  mv "$HOME/Desktops/$latest_desktop" "$1"
+  mv "$HOME/Desktop/$latest_desktop" "$1"
 }
 
 #### Miscelaneous system actions
@@ -130,6 +130,7 @@ alias gb="git branch"
 alias gm="git merge"
 alias gd="git diff"
 alias gdn="git diff --name-only"
+alias gdc="git diff --cached" # see what you've staged (added)
 alias gt="git tag"
 
 alias grs="git reset"
