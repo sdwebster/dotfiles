@@ -103,9 +103,9 @@ tosu () {
 }
 
 # dvorak home row synonym for ls: [a]ll files, [e]very one. Not necessary for QWERTY users
-alias ae="ls -A"
+alias ae="pwd && ls -A"
 # [a]ll files visible to common [u]ser (e.g. in Finder). Not necessary for QWERTY users
-alias au="ls"
+alias au="pwd && ls"
 
 #### OrientDB - easily start your local OrientDB (ACTION REQUIRED: change the version number to match yours)
 alias orient="cd /data/orientdb-community-2.1.4/bin/ && ./server.sh"
