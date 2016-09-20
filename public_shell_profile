@@ -88,7 +88,7 @@ alias grepx="grep -nr --exclude-dir={node_modules,bower_components,dist,dist_bun
 alias ll="ls -lG"
 
 mkcd () {
-  mkdir "$1"
+  mkdir -p "$1"
   cd "$1"
 }
 
