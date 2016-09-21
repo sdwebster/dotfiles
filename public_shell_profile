@@ -129,8 +129,10 @@ alias glo="git log --pretty=oneline"
 alias glu="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias gla="git log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'"
 # adapted from http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs
-alias gl1="gfpa && git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(magenta)- %an%C(reset)' --all --date=short"
-alias gl2="gfpa && git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gl1-local="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(magenta)- %an%C(reset)' --all --date=short"
+alias gl2-local="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gl1="gfpa && gl1-local --branches --remotes"
+alias gl2="gfpa && gl2-local --branches --remotes"
 
 alias go="git checkout"
 alias gb="git branch"
