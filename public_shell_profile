@@ -103,9 +103,9 @@ tosu () {
 }
 
 # dvorak home row synonym for ls: [a]ll files, [e]very one. Not necessary for QWERTY users
-alias ae="pwd && ls -A"
+alias ae="pwd && echo '' && ls -A"
 # [a]ll files visible to common [u]ser (e.g. in Finder). Not necessary for QWERTY users
-alias au="pwd && ls"
+alias au="pwd && echo '' && ls"
 
 #### OrientDB - easily start your local OrientDB (ACTION REQUIRED: change the version number to match yours)
 alias orient="cd /data/orientdb-community-2.1.4/bin/ && ./server.sh"
@@ -129,8 +129,10 @@ alias glo="git log --pretty=oneline"
 alias glu="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias gla="git log --color --graph --abbrev-commit --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'"
 # adapted from http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs
-alias gl1="gfpa && git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(magenta)- %an%C(reset)' --all --date=short"
-alias gl2="gfpa && git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gl1-local="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(magenta)- %an%C(reset)' --all --date=short"
+alias gl2-local="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(magenta)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gl1="gfpa && gl1-local --branches --remotes"
+alias gl2="gfpa && gl2-local --branches --remotes"
 
 alias go="git checkout"
 alias gb="git branch"
