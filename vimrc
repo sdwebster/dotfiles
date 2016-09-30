@@ -146,6 +146,17 @@ set hlsearch " highlight matches
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 set gdefault " use the `g` flag by default.
 
+" Drew Neil's "visual-star"
+" xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+" xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+" function! s:VSetSearch()
+"   let temp = @s
+"   norm! gv"sy
+"   let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+"   let @s = temp
+" endfunction
+
 " Consider, for bash-like tabbing:
 " set wildmode=longest, list
 " Or for zsh-like:
