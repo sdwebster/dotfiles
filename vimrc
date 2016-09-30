@@ -165,6 +165,8 @@ nnoremap <silent> <leader>h :bprevious<CR>
 nnoremap <silent> <leader>l :bnext<CR>
 nnoremap <silent> <leader>H :bfirst<CR>
 nnoremap <silent> <leader>L :blast<CR>
+" [t]oggle
+nnoremap <silent> <leader>t :b#<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
 
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
