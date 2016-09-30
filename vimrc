@@ -184,6 +184,10 @@ nnoremap <silent> <leader>r :source $MYVIMRC<CR>
 nnoremap <silent> <leader>e :Rexplore<CR>
 nnoremap <silent> <leader>o :Explore<CR>
 
+" promote whatever's on internal clipboard to external clipboard,
+" usefuly after accidentally omitting "* (or "+)
+nnoremap <silent> <leader>* :let @*=@"<CR>
+
 " Get a visual on misbehaved/trailing whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
