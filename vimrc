@@ -171,6 +171,8 @@ cnoremap <C-n> <Down>
 
 set shell=bash\ --login
 
+
+
 " In lieu of tpope/vim-unimpaired, because [ and ] are far away on Dvorak
 nnoremap <silent> <leader>h :bprevious<CR>
 nnoremap <silent> <leader>l :bnext<CR>
@@ -181,6 +183,7 @@ nnoremap <silent> <leader>x :bdelete<CR>
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
 nnoremap <silent> <leader>e :Rexplore<CR>
 nnoremap <silent> <leader>o :Explore<CR>
+
 
 " Get a visual on misbehaved/trailing whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -244,10 +247,16 @@ augroup END
 
 " ----- Plugin settings -----
 
-" Help vim-commentary out w/ some filetypes
 augroup filetypes
     autocmd!
+    " Help vim-commentary out w/ some filetypes
     autocmd FileType groovy setlocal commentstring=//\ %s
+
+    " Save + <compile +> run, in various languages
+    autocmd filetype python nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
+    autocmd filetype haskell nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
+    autocmd filetype c nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+    autocmd filetype cpp nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 augroup END
 
 " Map the key for toggling comments with vim-commentary
