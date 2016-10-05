@@ -258,7 +258,10 @@ augroup filetypes
     autocmd FileType groovy setlocal commentstring=//\ %s
 
     " Save + <compile +> run, in various languages
+    " Interpreted
     autocmd filetype python nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
+    autocmd filetype groovy nnoremap <leader>c :w <bar> exec '!groovy '.shellescape('%')<CR>
+    " Compiled
     autocmd filetype haskell nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
     autocmd filetype c nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
     autocmd filetype cpp nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
