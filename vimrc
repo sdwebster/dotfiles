@@ -254,16 +254,20 @@ augroup END
 
 augroup filetypes
     autocmd!
+
+    autocmd BufNewFile,BufRead *.io set filetype=io
     " Help vim-commentary out w/ some filetypes
     autocmd FileType groovy setlocal commentstring=//\ %s
+    autocmd FileType io setlocal commentstring=#\ %s
 
     " Save + <compile +> run, in various languages
-    autocmd filetype python nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
-    autocmd filetype groovy nnoremap <leader>c :w <bar> exec '!groovy '.shellescape('%')<CR>
-    autocmd filetype clojure nnoremap <leader>c :w <bar> exec '!lein exec '.shellescape('%')<CR>
-    autocmd filetype haskell nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
-    autocmd filetype c nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-    autocmd filetype cpp nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+    autocmd filetype python         nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
+    autocmd filetype groovy         nnoremap <leader>c :w <bar> exec '!groovy '.shellescape('%')<CR>
+    autocmd filetype io             nnoremap <leader>c :w <bar> exec '!io '.shellescape('%')<CR>
+    autocmd filetype clojure        nnoremap <leader>c :w <bar> exec '!lein exec '.shellescape('%')<CR>
+    autocmd filetype haskell        nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
+    autocmd filetype c              nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+    autocmd filetype cpp            nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 augroup END
 
 " Map the key for toggling comments with vim-commentary
