@@ -24,7 +24,7 @@
 
 
 #### Meta aliases - SUPER useful
-# Note: you may prefer to edit your conf files with a different text editor, e.g. Sublime. 
+# Note: you may prefer to edit your conf files with a different text editor, e.g. Sublime.
 # If so, replace these meta aliases with e.g.
 #   alias prof="subl ~/.bash_profile"
 # (uses the 'subl' alias here)
@@ -77,6 +77,9 @@ alias rebuff="clear && printf '\e[3J'"
 # Lock screen w/o logout
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 
+# Reload my cron jobs (after pausing with $ crontab -r)
+alias cron-resume='crontab $DOTFILE_HOME/cron-jobs.txt'
+
 # Find the dimensions of an image (check out "$ man sips" for more awesome)
 # e.g. $ pic-dimensions site-logo.png
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth"
@@ -110,7 +113,7 @@ alias au="pwd && echo '' && ls"
 #### OrientDB - easily start your local OrientDB (ACTION REQUIRED: change the version number to match yours)
 alias orient="cd /data/orientdb-community-2.1.4/bin/ && ./server.sh"
 
-#### Git-related aliases & functions 
+#### Git-related aliases & functions
 # Note: many of these are redundant w/ oh-my-zsh's git plugin, which is generally more sophisticated
 # TODO: separate out which of these are covered by oh-my-zsh plugin, and which are novel
 alias gcl="git clone"
