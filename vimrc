@@ -189,6 +189,9 @@ nnoremap <silent> <leader>o :Explore<CR>
 " promote whatever's on internal clipboard to external clipboard,
 " usefuly after accidentally omitting "* (or "+)
 nnoremap <silent> <leader>* :let @*=@"<CR>
+" put from external clipboard
+nnoremap <silent> <leader>+ :put *<CR>
+
 
 " Get a visual on misbehaved/trailing whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
