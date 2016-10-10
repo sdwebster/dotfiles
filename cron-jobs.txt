@@ -1,0 +1,4 @@
+# requires: $ brew install terminal-notifier
+# to run, $ crontab $DOTFILEHOME/cron-jobs.txt
+# to pause, $ crontab -r
+0,30 * * * * /usr/local/bin/terminal-notifier -title "Look away from the screen" -message "30 minutes are up"

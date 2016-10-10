@@ -65,6 +65,9 @@ Plugin 'tpope/vim-fugitive'
 " Netrw enhancements
 Plugin 'tpope/vim-vinegar'
 
+" Shortcuts w/ [ and ]
+Plugin 'tpope/vim-unimpaired'
+
 " ae, ie
 "Plugin 'kana/vim-textobj-entire'
 
@@ -179,7 +182,15 @@ set shell=bash\ --login
 
 
 
-" In lieu of tpope/vim-unimpaired, because [ and ] are far away on Dvorak
+" Help out with tpope/vim-unimpaired, because [ and ] are far away on Dvorak
+nmap <leader>e [
+nmap <leader>u ]
+omap <leader>e [
+omap <leader>u ]
+xmap <leader>e [
+xmap <leader>u ]
+
+" Also to move quickly w/o vim-unimpaired
 nnoremap <silent> <leader>h :bprevious<CR>
 nnoremap <silent> <leader>l :bnext<CR>
 nnoremap <silent> <leader>H :bfirst<CR>
@@ -189,7 +200,7 @@ nnoremap <silent> <leader>t :b#<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
 
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
-nnoremap <silent> <leader>e :Rexplore<CR>
+nnoremap <silent> <leader>n :Rexplore<CR>
 nnoremap <silent> <leader>o :Explore<CR>
 
 " promote whatever's on internal clipboard to external clipboard,
@@ -263,16 +274,20 @@ augroup END
 
 augroup filetypes
     autocmd!
+
+    autocmd BufNewFile,BufRead *.io set filetype=io
     " Help vim-commentary out w/ some filetypes
     autocmd FileType groovy setlocal commentstring=//\ %s
+    autocmd FileType io setlocal commentstring=#\ %s
 
     " Save + <compile +> run, in various languages
-    autocmd filetype python nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
-    autocmd filetype groovy nnoremap <leader>c :w <bar> exec '!groovy '.shellescape('%')<CR>
-    autocmd filetype clojure nnoremap <leader>c :w <bar> exec '!lein exec '.shellescape('%')<CR>
-    autocmd filetype haskell nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
-    autocmd filetype c nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-    autocmd filetype cpp nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+    autocmd filetype python         nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
+    autocmd filetype groovy         nnoremap <leader>c :w <bar> exec '!groovy '.shellescape('%')<CR>
+    autocmd filetype io             nnoremap <leader>c :w <bar> exec '!io '.shellescape('%')<CR>
+    autocmd filetype clojure        nnoremap <leader>c :w <bar> exec '!lein exec '.shellescape('%')<CR>
+    autocmd filetype haskell        nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
+    autocmd filetype c              nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+    autocmd filetype cpp            nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 augroup END
 
 " Map the key for toggling comments with vim-commentary
