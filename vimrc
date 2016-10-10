@@ -59,6 +59,8 @@ Bundle 'kien/ctrlp.vim'
 " Support for easily toggling comments.
 Plugin 'tpope/vim-commentary'
 
+Plugin 'tpope/vim-unimpaired'
+
 " ae, ie
 "Plugin 'kana/vim-textobj-entire'
 
@@ -173,7 +175,15 @@ set shell=bash\ --login
 
 
 
-" In lieu of tpope/vim-unimpaired, because [ and ] are far away on Dvorak
+" Help out with tpope/vim-unimpaired, because [ and ] are far away on Dvorak
+nmap <leader>e [
+nmap <leader>u ]
+omap <leader>e [
+omap <leader>u ]
+xmap <leader>e [
+xmap <leader>u ]
+
+" Also to move quickly w/o vim-unimpaired
 nnoremap <silent> <leader>h :bprevious<CR>
 nnoremap <silent> <leader>l :bnext<CR>
 nnoremap <silent> <leader>H :bfirst<CR>
@@ -183,7 +193,7 @@ nnoremap <silent> <leader>t :b#<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
 
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
-nnoremap <silent> <leader>e :Rexplore<CR>
+nnoremap <silent> <leader>n :Rexplore<CR>
 nnoremap <silent> <leader>o :Explore<CR>
 
 " promote whatever's on internal clipboard to external clipboard,
