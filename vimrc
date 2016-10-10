@@ -31,7 +31,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -58,6 +58,12 @@ Bundle 'kien/ctrlp.vim'
 
 " Support for easily toggling comments.
 Plugin 'tpope/vim-commentary'
+
+" Git wrapper
+Plugin 'tpope/vim-fugitive'
+
+" Netrw enhancements
+Plugin 'tpope/vim-vinegar'
 
 " ae, ie
 "Plugin 'kana/vim-textobj-entire'
