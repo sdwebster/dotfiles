@@ -198,6 +198,7 @@ nnoremap <silent> <leader>L :blast<CR>
 " [t]oggle
 nnoremap <silent> <leader>t :b#<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
+nnoremap <silent> <leader>w :w<CR>
 
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
 nnoremap <silent> <leader>n :Rexplore<CR>
@@ -208,6 +209,16 @@ nnoremap <silent> <leader>o :Explore<CR>
 nnoremap <silent> <leader>* :let @*=@"<CR>
 " put from external clipboard
 nnoremap <silent> <leader>+ :put *<CR>
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Open tests in vertical split
+    "  vsp expand('%:r') . Spec.groovy
 
 
 " Get a visual on misbehaved/trailing whitespace
