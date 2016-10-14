@@ -198,6 +198,7 @@ nnoremap <silent> <leader>L :blast<CR>
 " [t]oggle
 nnoremap <silent> <leader>t :b#<CR>
 nnoremap <silent> <leader>x :bdelete<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>w :w<CR>
 
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
