@@ -276,10 +276,10 @@ augroup vimrcEx
         \   exe "normal! g`\"" |
         \ endif
     " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-    " autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre * :%s/\s\+$//e
     " Looser rule: if entire line is whitespace, delete whitespace, useful for vim
     " paragraph jumps
-    autocmd BufWritePre * :%s/^\s\+$//e
+    " autocmd BufWritePre * :%s/^\s\+$//e
 augroup END
 
 " ----- Plugin settings -----
