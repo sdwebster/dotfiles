@@ -192,12 +192,12 @@ set shell=bash\ --login
 
 
 " Help out with tpope/vim-unimpaired, because [ and ] are far away on Dvorak
-nmap <leader>e [
-nmap <leader>u ]
-omap <leader>e [
-omap <leader>u ]
-xmap <leader>e [
-xmap <leader>u ]
+nmap <leader>k [
+nmap <leader>j ]
+omap <leader>k [
+omap <leader>j ]
+xmap <leader>k [
+xmap <leader>j ]
 
 " Also to move quickly w/o vim-unimpaired
 nnoremap <silent> <leader>h :bprevious<CR>
