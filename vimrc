@@ -300,6 +300,7 @@ augroup filetypes
     autocmd filetype haskell        nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
     autocmd filetype c              nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
     autocmd filetype cpp            nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+    autocmd filetype java           nnoremap <leader>c :w <bar> exec '!javac '.shellescape('%')' && java '.shellescape('%:r')<CR>
 augroup END
 
 " Map the key for toggling comments with vim-commentary
