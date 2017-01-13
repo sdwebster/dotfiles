@@ -5,6 +5,15 @@
 " Actually, my home ~/.vimrc simply sources this shared file:
     " source $DOTFILE_HOME/vimrc
 
+"""" Attribution
+" Thanks to Philip Thrasher's well-commented beginner vimrc:
+"   https://gist.github.com/pthrasher/3933522
+" for getting me started.
+"
+" Also owes a lot to Drew Neil -- I highly recommend his
+"   Practical Vim
+"   Pragmatic Programmers, 2012
+" (there's a newer edition now)
 
 " Plugins managed by Vundle (https://github.com/VundleVim/Vundle.vim)
 " Vundle installation:
@@ -183,12 +192,12 @@ set shell=bash\ --login
 
 
 " Help out with tpope/vim-unimpaired, because [ and ] are far away on Dvorak
-nmap <leader>e [
-nmap <leader>u ]
-omap <leader>e [
-omap <leader>u ]
-xmap <leader>e [
-xmap <leader>u ]
+nmap <leader>k [
+nmap <leader>j ]
+omap <leader>k [
+omap <leader>j ]
+xmap <leader>k [
+xmap <leader>j ]
 
 " Also to move quickly w/o vim-unimpaired
 nnoremap <silent> <leader>h :bprevious<CR>

@@ -22,7 +22,6 @@
 # and
 # https://github.com/joshwyatt/bash_profile
 
-
 #### Meta aliases - SUPER useful
 # Note: you may prefer to edit your conf files with a different text editor, e.g. Sublime.
 # If so, replace these meta aliases with e.g.
@@ -152,7 +151,9 @@ alias gpo="git push origin"
 alias gob="git checkout -b"
 alias gprbusm="git pull --rebase upstream master"
 alias grsdss="git reset .DS_Store"
-alias grsconf="git reset grails-app/conf/Config.groovy"
+alias grsconf="git reset grails-app/conf/Config.groovy || git reset grails-app/conf/application.yml"
+# git add all but (config)
+alias gaab="ga . && grsconf && gs"
 alias grbc="git rebase --continue"
 alias grbih2="git rebase -i HEAD~2"
 
