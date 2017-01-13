@@ -213,6 +213,8 @@ nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>r :source $MYVIMRC<CR>
 nnoremap <silent> <leader>n :Rexplore<CR>
 nnoremap <silent> <leader>o :Explore<CR>
+" similar to C-z
+nnoremap <silent> <leader>e :suspend<CR>
 
 " promote whatever's on internal clipboard to external clipboard,
 " usefuly after accidentally omitting "* (or "+)
