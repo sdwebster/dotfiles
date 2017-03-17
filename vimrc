@@ -309,15 +309,44 @@ augroup filetypes
     autocmd FileType io setlocal commentstring=#\ %s
 
     " Save + <compile +> run, in various languages
-    autocmd filetype python         nnoremap <leader>c :w <bar> exec '!python '.shellescape('%')<CR>
-    autocmd filetype groovy         nnoremap <leader>c :w <bar> exec '!groovy '.shellescape('%')<CR>
-    autocmd filetype io             nnoremap <leader>c :w <bar> exec '!io '.shellescape('%')<CR>
-    autocmd filetype clojure        nnoremap <leader>c :w <bar> exec '!lein exec '.shellescape('%')<CR>
-    autocmd filetype haskell        nnoremap <leader>c :w <bar> exec '!runhaskell '.shellescape('%')<CR>
-    autocmd filetype elixir         nnoremap <leader>c :w <bar> exec '!elixir '.shellescape('%')<CR>
-    autocmd filetype c              nnoremap <leader>c :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-    autocmd filetype cpp            nnoremap <leader>c :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-    autocmd filetype java           nnoremap <leader>c :w <bar> exec '!javac '.shellescape('%')' && java '.shellescape('%:r')<CR>
+    autocmd filetype python
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!python '.shellescape('%')<CR>
+
+    autocmd filetype groovy
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!groovy '.shellescape('%')<CR>
+
+    autocmd filetype io
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!io '.shellescape('%')<CR>
+
+    autocmd filetype clojure
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!lein exec '.shellescape('%')<CR>
+
+    autocmd filetype haskell
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!runhaskell '.shellescape('%')<CR>
+
+    autocmd filetype elixir
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!elixir '.shellescape('%')<CR>
+
+    autocmd filetype c
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+    autocmd filetype cpp
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+    autocmd filetype java
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!javac '.shellescape('%')' && java '.shellescape('%:r')<CR>
+
+    " " Certain Groovy config files indented at 2
+    " autocmd filetype
 augroup END
 
 " Map the key for toggling comments with vim-commentary
