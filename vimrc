@@ -241,6 +241,11 @@ set list listchars=tab:»·,trail:·,nbsp:·
 nnoremap B ^
 nnoremap E $
 
+" [e]xit process
+nnoremap <C-e> <C-z>
+" scroll so slow that you fall asleep...[z]zzzz
+nnoremap <C-z> <C-e>
+
 " Searching
 " have grep exclude certain dirs, filetypes by default
 " set grepprg=grep\ -nr\ $*\ /dev/null
