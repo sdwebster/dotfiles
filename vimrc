@@ -300,10 +300,71 @@ augroup END
 
 " ----- Plugin settings -----
 
+function! TrimWhitespace(str)
+    return substitute(a:str, "^\\s\\+\\|\\s\\+$", '', 'g')
+endfunction
+
+function! AddLog(functionName, vars, indentation)
+    let logLines = []
+    let logLineStart = a:indentation . 'console.log("' . expand('%:t') . ': '
+    let logLineEnd = ');'
+    if (a:functionName != '')
+        let fnMessage = logLineStart . "calling function '" . a:functionName . "'"
+        if (a:vars == [])
+            call add(logLines, fnMessage . '"' . logLineEnd)
+        else
+            call add(logLines, fnMessage . ' with ' . len(a:vars) . ' arguments: "' . logLineEnd)
+        endif
+    endif
+
+    let singleQuote = "'"
+    call map(a:vars, 'logLineStart . singleQuote . v:val . singleQuote . " is \" + " . v:val . logLineEnd')
+    call extend(logLines, a:vars)
+
+    if (logLines == [])
+        " no functionName or variables. Use default line.
+        let logLines = [logLineStart . '"' . logLineEnd]
+    endif
+    call append(line('.'), logLines)
+endfunction
+
+function! AddConsoleLog()
+    let currentLine = getline(".")
+    if (currentLine == '')
+        call AddLog('', [], '')
+        return
+    endif
+    if (currentLine[0] =~ '\s')
+        let indentation = split("A" . currentLine, '\S')[0]
+    else
+        let indentation = ''
+    endif
+    if currentLine =~ 'function'
+        let parts = split(' ' . currentLine, 'function')
+        let parenSplit = split(' ' . parts[1], '(')
+        let functionName = TrimWhitespace(parenSplit[0])
+        if (functionName == '')
+            let beforePunct = split(' ' . parts[0], '=\|:')[0]
+            let lastWord = split(beforePunct, ' ')[-1]
+            let functionName = lastWord
+        endif
+        let withinParens = split(' ' . parenSplit[1], ')')[0]
+        let arguments = map(split(withinParens, ','), 'TrimWhitespace(v:val)')
+        call AddLog(functionName, arguments, indentation . '    ')
+    elseif currentLine =~ '='
+        let beforeEq = split(' ' . currentLine, '=')[0]
+        let lastWord = split(beforeEq, ' ')[-1]
+        call AddLog('', [lastWord], indentation)
+    else
+        call AddLog('', [], indentation)
+    endif
+endfunction
+
 augroup filetypes
     autocmd!
 
     autocmd BufNewFile,BufRead *.io set filetype=io
+
     " Help vim-commentary out w/ some filetypes
     autocmd FileType groovy setlocal commentstring=//\ %s
     autocmd FileType io setlocal commentstring=#\ %s
@@ -344,6 +405,13 @@ augroup filetypes
     autocmd filetype java
     \ nnoremap <leader>c :w <bar>
     \ exec '!javac '.shellescape('%')' && java '.shellescape('%:r')<CR>
+
+    autocmd filetype javascript
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!node '.shellescape('%')<CR>
+
+    autocmd filetype javascript
+    \ let @c=':call AddConsoleLog()'
 
     " " Certain Groovy config files indented at 2
     " autocmd filetype
