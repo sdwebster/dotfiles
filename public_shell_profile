@@ -79,6 +79,9 @@ alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/
 # Reload my cron jobs (after pausing with $ crontab -r)
 alias cron-resume='crontab $DOTFILE_HOME/cron-jobs.txt'
 
+# work in progress
+# alias killer="reprof && kill -9 $(lsof -i:8080 | grep java | awk '{print $2}' | sort -n | uniq)"
+
 # Find the dimensions of an image (check out "$ man sips" for more awesome)
 # e.g. $ pic-dimensions site-logo.png
 alias pic-dimensions="sips -g pixelHeight -g pixelWidth"
