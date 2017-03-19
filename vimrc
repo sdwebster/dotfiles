@@ -330,17 +330,21 @@ function! AddLog(functionName, vars, indentation)
     call append(line('.'), logLines)
 endfunction
 
-function! AddConsoleLog()
+function! GetIndentation()
     let currentLine = getline(".")
     if (currentLine == '')
-        call AddLog('', [], '')
-        return
+        return ''
     endif
     if (currentLine[0] =~ '\s')
-        let indentation = split("A" . currentLine, '\S')[0]
+        return split("A" . currentLine, '\S')[0]
     else
-        let indentation = ''
+        return ''
     endif
+endfunction
+
+function! AddConsoleLog()
+    let currentLine = getline(".")
+    let indentation = GetIndentation()
     if currentLine =~ 'function'
         let parts = split(' ' . currentLine, 'function')
         let parenSplit = split(' ' . parts[1], '(')
