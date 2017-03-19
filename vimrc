@@ -300,6 +300,8 @@ augroup END
 
 " ----- Plugin settings -----
 
+" thanks Bob Harris!
+" http://newsgroups.derkeiler.com/Archive/Comp/comp.editors/2005-08/msg00226.html
 function! TrimWhitespace(str)
     return substitute(a:str, "^\\s\\+\\|\\s\\+$", '', 'g')
 endfunction
