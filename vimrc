@@ -306,6 +306,19 @@ function! TrimWhitespace(str)
     return substitute(a:str, "^\\s\\+\\|\\s\\+$", '', 'g')
 endfunction
 
+" thanks xolox!
+" http://stackoverflow.com/questions/1533565/how-to-get-visually-selected-text-in-vimscript
+function! GetVisualSelection()
+    :echom 'doing GetVisualSelection'
+  " Why is this not a built-in Vim script function?!
+  let [lnum1, col1] = getpos("'<")[1:2]
+  let [lnum2, col2] = getpos("'>")[1:2]
+  let lines = getline(lnum1, lnum2)
+  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+  let lines[0] = lines[0][col1 - 1:]
+  return join(lines, "\n")
+endfunction
+
 function! AddLog(functionName, vars, indentation)
     let logLines = []
     let logLineStart = a:indentation . 'console.log("' . expand('%:t') . ': '
@@ -366,6 +379,31 @@ function! AddConsoleLog()
     endif
 endfunction
 
+" function! GetVisual() range
+"         let reg_save = getreg('"')
+"         let regtype_save = getregtype('"')
+"         let cb_save = &clipboard
+"         set clipboard&
+"         normal! ""gvy
+"         let selection = getreg('"')
+"         call setreg('"', reg_save, regtype_save)
+"         let &clipboard = cb_save
+"         return selection
+" endfunction
+
+function! AddWordLog()
+    let indentation = GetIndentation()
+    normal yaw
+    call AddLog('', [ @" ], indentation)
+endfunction
+
+function! AddSelectionLog()
+    let indentation = GetIndentation()
+    " getVisualSelection()
+    " normal `<y`>
+    call AddLog('', [ GetVisualSelection() ], indentation)
+endfunction
+
 augroup filetypes
     autocmd!
 
@@ -417,7 +455,9 @@ augroup filetypes
     \ exec '!node '.shellescape('%')<CR>
 
     autocmd filetype javascript
-    \ let @c=':call AddConsoleLog()'
+    \ let @c=':call AddConsoleLog()' |
+    \ let @w=':call AddWordLog()' |
+    \ let @v=':call AddSelectionLog()'
 
     " " Certain Groovy config files indented at 2
     " autocmd filetype
