@@ -438,6 +438,14 @@ augroup filetypes
     \ nnoremap <leader>c :w <bar>
     \ exec '!elixir '.shellescape('%')<CR>
 
+    autocmd filetype rust
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!rustc ' . shellescape('%') . ' && ./' . shellescape('%:r')<CR>
+
+    autocmd filetype go
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!go run ' . shellescape('%')<CR>
+
     autocmd filetype c
     \ nnoremap <leader>c :w <bar>
     \ exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
