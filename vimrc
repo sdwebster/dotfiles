@@ -299,7 +299,7 @@ augroup vimrcEx
 augroup END
 
 " Pull in work-in-progress vim tool
-source ./vim-loggerhythm
+source $DOTFILE_HOME/vim-loggerhythm.vim
 
 augroup filetypes
     autocmd!
