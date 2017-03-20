@@ -300,8 +300,23 @@ augroup END
 
 " ----- Plugin settings -----
 
+" thanks Bob Harris!
+" http://newsgroups.derkeiler.com/Archive/Comp/comp.editors/2005-08/msg00226.html
 function! TrimWhitespace(str)
     return substitute(a:str, "^\\s\\+\\|\\s\\+$", '', 'g')
+endfunction
+
+" thanks xolox!
+" http://stackoverflow.com/questions/1533565/how-to-get-visually-selected-text-in-vimscript
+function! GetVisualSelection()
+    :echom 'doing GetVisualSelection'
+  " Why is this not a built-in Vim script function?!
+  let [lnum1, col1] = getpos("'<")[1:2]
+  let [lnum2, col2] = getpos("'>")[1:2]
+  let lines = getline(lnum1, lnum2)
+  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+  let lines[0] = lines[0][col1 - 1:]
+  return join(lines, "\n")
 endfunction
 
 function! AddLog(functionName, vars, indentation)
@@ -328,17 +343,21 @@ function! AddLog(functionName, vars, indentation)
     call append(line('.'), logLines)
 endfunction
 
-function! AddConsoleLog()
+function! GetIndentation()
     let currentLine = getline(".")
     if (currentLine == '')
-        call AddLog('', [], '')
-        return
+        return ''
     endif
     if (currentLine[0] =~ '\s')
-        let indentation = split("A" . currentLine, '\S')[0]
+        return split("A" . currentLine, '\S')[0]
     else
-        let indentation = ''
+        return ''
     endif
+endfunction
+
+function! AddConsoleLog()
+    let currentLine = getline(".")
+    let indentation = GetIndentation()
     if currentLine =~ 'function'
         let parts = split(' ' . currentLine, 'function')
         let parenSplit = split(' ' . parts[1], '(')
@@ -358,6 +377,31 @@ function! AddConsoleLog()
     else
         call AddLog('', [], indentation)
     endif
+endfunction
+
+" function! GetVisual() range
+"         let reg_save = getreg('"')
+"         let regtype_save = getregtype('"')
+"         let cb_save = &clipboard
+"         set clipboard&
+"         normal! ""gvy
+"         let selection = getreg('"')
+"         call setreg('"', reg_save, regtype_save)
+"         let &clipboard = cb_save
+"         return selection
+" endfunction
+
+function! AddWordLog()
+    let indentation = GetIndentation()
+    normal yaw
+    call AddLog('', [ @" ], indentation)
+endfunction
+
+function! AddSelectionLog()
+    let indentation = GetIndentation()
+    " getVisualSelection()
+    " normal `<y`>
+    call AddLog('', [ GetVisualSelection() ], indentation)
 endfunction
 
 augroup filetypes
@@ -394,6 +438,14 @@ augroup filetypes
     \ nnoremap <leader>c :w <bar>
     \ exec '!elixir '.shellescape('%')<CR>
 
+    autocmd filetype rust
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!rustc ' . shellescape('%') . ' && ./' . shellescape('%:r')<CR>
+
+    autocmd filetype go
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!go run ' . shellescape('%')<CR>
+
     autocmd filetype c
     \ nnoremap <leader>c :w <bar>
     \ exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
@@ -411,7 +463,9 @@ augroup filetypes
     \ exec '!node '.shellescape('%')<CR>
 
     autocmd filetype javascript
-    \ let @c=':call AddConsoleLog()'
+    \ let @c=':call AddConsoleLog()' |
+    \ let @w=':call AddWordLog()' |
+    \ let @v=':call AddSelectionLog()'
 
     " " Certain Groovy config files indented at 2
     " autocmd filetype
