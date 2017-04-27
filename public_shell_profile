@@ -80,7 +80,12 @@ alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/
 alias cron-resume='crontab $DOTFILE_HOME/cron-jobs.txt'
 
 # work in progress
-# alias killer="reprof && kill -9 $(lsof -i:8080 | grep java | awk '{print $2}' | sort -n | uniq)"
+# killer () {
+#     # lsof -i:8082 | grep java | awk '{print $2}' | sort -n | uniq
+#     process_id="$(lsof -i:8082 | grep java | awk '{print $2}' | sort -n | uniq)"
+#     echo $process_id
+#     kill -9 $process_id
+# }
 
 # Find the dimensions of an image (check out "$ man sips" for more awesome)
 # e.g. $ pic-dimensions site-logo.png
