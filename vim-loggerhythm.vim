@@ -104,10 +104,23 @@ function! AddSelectionLog()
     call AddLog('', [ GetVisualSelection() ], indentation)
 endfunction
 
+" Decide whether this belongs here or in another plugin
+function! WrapStringify()
+    let highlighted = GetVisualSelection()
+    call AddWordLog()
+    " normal
+    " :echom highlighted
+    " getVisualSelection()
+    " normal y
+
+    " call AddLog('', [ GetVisualSelection() ], indentation)
+endfunction
+
 augroup filetypes
     autocmd!
     autocmd filetype javascript
     \ let @c=':call AddConsoleLog()' |
     \ let @w=':call AddWordLog()' |
-    \ let @v=':call AddSelectionLog()'
+    \ let @v=':call AddSelectionLog()' |
+    \ let @j=':call WrapStringify()'
 augroup END
