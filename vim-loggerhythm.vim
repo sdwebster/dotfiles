@@ -105,18 +105,19 @@ function! AddSelectionLog()
 endfunction
 
 " Decide whether this belongs here or in another plugin
-function! WrapStringify()
+function! WrapJsonStringify()
     let highlighted = GetVisualSelection()
     " do the end-paren first, before the end-index gets outdated!
     normal! `>a)
     normal! `<iJSON.stringify(
 endfunction
 
-augroup filetypes
-    autocmd!
-    autocmd filetype javascript
-    \ let @c=':call AddConsoleLog()' |
-    \ let @w=':call AddWordLog()' |
-    \ let @v=':call AddSelectionLog()' |
-    \ let @j=':call WrapStringify()'
-augroup END
+"" (controlled from main vimrc for now)
+" augroup filetypes
+"     autocmd!
+"     autocmd filetype javascript
+"     \ let @c=':call AddConsoleLog()' |
+"     \ let @w=':call AddWordLog()' |
+"     \ let @v=':call AddSelectionLog()' |
+"     \ let @j=':call WrapJsonStringify()'
+" augroup END

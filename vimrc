@@ -362,7 +362,8 @@ augroup filetypes
     autocmd filetype javascript
     \ let @c=':call AddConsoleLog()' |
     \ let @w=':call AddWordLog()' |
-    \ let @v=':call AddSelectionLog()'
+    \ let @v=':call AddSelectionLog()' |
+    \ let @j=':call WrapJsonStringify()'
 
     " " Certain Groovy config files indented at 2
     " autocmd filetype
