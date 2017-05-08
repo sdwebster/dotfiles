@@ -107,13 +107,9 @@ endfunction
 " Decide whether this belongs here or in another plugin
 function! WrapStringify()
     let highlighted = GetVisualSelection()
-    call AddWordLog()
-    " normal
-    " :echom highlighted
-    " getVisualSelection()
-    " normal y
-
-    " call AddLog('', [ GetVisualSelection() ], indentation)
+    " do the end-paren first, before the end-index gets outdated!
+    normal! `>a)
+    normal! `<iJSON.stringify(
 endfunction
 
 augroup filetypes
