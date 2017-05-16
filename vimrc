@@ -335,6 +335,10 @@ augroup filetypes
     \ nnoremap <leader>c :w <bar>
     \ exec '!elixir '.shellescape('%')<CR>
 
+    autocmd filetype ocaml
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!ocamlc '.shellescape('%') . ' -o ' . shellescape('%:r')' && ./'.shellescape('%:r')<CR>
+
     autocmd filetype rust
     \ nnoremap <leader>c :w <bar>
     \ exec '!rustc ' . shellescape('%') . ' && ./' . shellescape('%:r')<CR>
