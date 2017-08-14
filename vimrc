@@ -311,66 +311,66 @@ augroup filetypes
     autocmd FileType io setlocal commentstring=#\ %s
 
     " Save + <compile +> run, in various languages
-    autocmd filetype python
+    autocmd FileType python
     \ nnoremap <leader>c :w <bar>
     \ exec '!python '.shellescape('%')<CR>
 
-    autocmd filetype groovy
+    autocmd FileType groovy
     \ nnoremap <leader>c :w <bar>
     \ exec '!groovy '.shellescape('%')<CR>
 
-    autocmd filetype io
+    autocmd FileType io
     \ nnoremap <leader>c :w <bar>
     \ exec '!io '.shellescape('%')<CR>
 
-    autocmd filetype clojure
+    autocmd FileType clojure
     \ nnoremap <leader>c :w <bar>
     \ exec '!lein exec '.shellescape('%')<CR>
 
-    autocmd filetype haskell
+    autocmd FileType haskell
     \ nnoremap <leader>c :w <bar>
     \ exec '!runhaskell '.shellescape('%')<CR>
 
-    autocmd filetype elixir
+    autocmd FileType elixir
     \ nnoremap <leader>c :w <bar>
     \ exec '!elixir '.shellescape('%')<CR>
 
-    autocmd filetype ocaml
+    autocmd FileType ocaml
     \ nnoremap <leader>c :w <bar>
     \ exec '!ocamlc '.shellescape('%') . ' -o ' . shellescape('%:r')' && ./'.shellescape('%:r')<CR>
 
-    autocmd filetype rust
+    autocmd FileType rust
     \ nnoremap <leader>c :w <bar>
     \ exec '!rustc ' . shellescape('%') . ' && ./' . shellescape('%:r')<CR>
 
-    autocmd filetype go
+    autocmd FileType go
     \ nnoremap <leader>c :w <bar>
     \ exec '!go run ' . shellescape('%')<CR>
 
-    autocmd filetype c
+    autocmd FileType c
     \ nnoremap <leader>c :w <bar>
     \ exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-    autocmd filetype cpp
+    autocmd FileType cpp
     \ nnoremap <leader>c :w <bar>
     \ exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-    autocmd filetype java
+    autocmd FileType java
     \ nnoremap <leader>c :w <bar>
     \ exec '!javac '.shellescape('%')' && java '.shellescape('%:r')<CR>
 
-    autocmd filetype javascript
+    autocmd FileType javascript
     \ nnoremap <leader>c :w <bar>
     \ exec '!node '.shellescape('%')<CR>
 
-    autocmd filetype javascript
+    autocmd FileType javascript
     \ let @c=':call AddConsoleLog()' |
     \ let @w=':call AddWordLog()' |
     \ let @v=':call AddSelectionLog()' |
     \ let @j=':call WrapJsonStringify()'
 
     " " Certain Groovy config files indented at 2
-    " autocmd filetype
+    " autocmd FileType
 augroup END
 
 " Map the key for toggling comments with vim-commentary
