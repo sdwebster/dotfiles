@@ -55,55 +55,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " ----- MY VUNDLE PLUGINS -----
-"
-" ----- General -----
+source $DOTFILE_HOME/vim-bundles
 
-" A ton of color schemes.
-" https://github.com/flazz/vim-colorschemes#current-colorschemes
-Bundle 'flazz/vim-colorschemes'
-
-" Fuzzy finder -- absolutely must have.
-Bundle 'kien/ctrlp.vim'
-
-" Support for easily toggling comments.
-Plugin 'tpope/vim-commentary'
-
-" Git wrapper
-Plugin 'tpope/vim-fugitive'
-
-" Netrw enhancements
-Plugin 'tpope/vim-vinegar'
-
-" Shortcuts w/ [ and ]
-Plugin 'tpope/vim-unimpaired'
-
-" ae, ie
-"Plugin 'kana/vim-textobj-entire'
-
-" ----- Language / Filetype Support -----
-
-" Catch-all for many languages
-Plugin 'sheerun/vim-polyglot'
-" let g:polyglot_disabled = []
-
-" has better indentation than built-in JS support (may already be installed
-" via polyglot)
-Plugin 'pangloss/vim-javascript'
-
-" Proper JSON filetype detection, and support. (polyglot may have its own)
-" Bundle 'leshill/vim-json'
-
-" has better indentation than built-in HTML support
-Plugin 'indenthtml.vim'
-
-" Good syntax for markdown
-Plugin 'tpope/vim-markdown'
-
-" LessCSS
-Plugin 'groenewege/vim-less'
-
-" All of your vundle Plugins must be added before the following line
-
+"" All of your vundle Plugins must be added before the following line
 call vundle#end()            " required
 
 " A few required post-vundle lines
