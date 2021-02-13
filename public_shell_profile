@@ -38,6 +38,35 @@ alias vprof="vim ~/.vimrc" # for vim users
 alias tprof="vim ~/.tmux.conf" # for tmux users
 alias subl="open -a Sublime\ Text\ 2" # for Sublime users
 
+# zsh version
+# fancy-ctrl-e () {
+#   if [[ $#BUFFER -eq 0 ]]; then
+#     BUFFER="fg"
+#     zle accept-line
+#   else
+#     zle end-of-line
+#   fi
+# }
+
+# bash version
+# fancy-ctrl-e () {
+#   if [[ $#BUFFER -eq 0 ]]; then
+#     fg
+#   else
+#     zle end-of-line
+#   fi
+# }
+
+# to examine the defaults/results of 'bind', e.g.:
+# bind -p | grep -F "\C" | less
+
+# for vim users: a hotkey to enter "$ fg" and resume the vim process
+# Together with a line in vimrc replacing C-z with C-e, this allows C-e to toggle in and out of vim
+# bind '"\C-E"':"end-of-line"
+bind '"\C-e"':'"fg\C-m"'
+# bind '"\C-xa"':'alias-expand-line'
+# bind '"\C-E"':"fancy-ctrl-e ()"
+
 #### Navigation aliases for general OS X (and maybe some Linux)
 alias de="cd ~/Desktop"
 alias ds="cd ~/Documents"
@@ -113,9 +142,12 @@ tosu () {
 }
 
 # dvorak home row synonym for ls: [a]ll files, [e]very one. Not necessary for QWERTY users
-alias ae="pwd && echo '' && ls -A"
+alias ae="ls -A"
+alias pae="pwd && echo '' && ls -A"
 # [a]ll files visible to common [u]ser (e.g. in Finder). Not necessary for QWERTY users
-alias au="pwd && echo '' && ls"
+alias au="ls"
+alias pau="pwd && echo '' && ls"
+
 
 #### OrientDB - easily start your local OrientDB (ACTION REQUIRED: change the version number to match yours)
 alias orient="cd /data/orientdb-community-2.1.4/bin/ && ./server.sh"

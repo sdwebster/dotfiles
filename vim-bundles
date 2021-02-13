@@ -4,7 +4,7 @@
 
 " A ton of color schemes.
 " https://github.com/flazz/vim-colorschemes#current-colorschemes
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 
 " Fuzzy finder -- absolutely must have.
 Bundle 'kien/ctrlp.vim'
