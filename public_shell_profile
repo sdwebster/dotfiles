@@ -187,7 +187,7 @@ gkbf () {
 #### Scala
 # Run sbt with Java 7 (even with Java 8 running on computer)
 # (useful for Odersky's Coursera functional programming course)
-alias sbt7="sbt -java-home `/usr/libexec/java_home -v 1.7`"
+# alias sbt7="sbt -java-home `/usr/libexec/java_home -v 1.7`"
 
 #### Scheme
 # MIT Scheme REPL is better w/ rlwrap
