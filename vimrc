@@ -128,9 +128,12 @@ syntax on
 set autoindent
 set number
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" set tabstop=4
+" set shiftwidth=4
+" set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab " use spaces instead of tabs.
 set smarttab " lets tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
@@ -215,6 +218,8 @@ nnoremap <silent> <leader>n :Rexplore<CR>
 nnoremap <silent> <leader>o :Explore<CR>
 " similar to C-z
 nnoremap <silent> <leader>e :suspend<CR>
+
+" clipboard=unnamedplus
 
 " promote whatever's on internal clipboard to external clipboard,
 " usefuly after accidentally omitting "* (or "+)
@@ -306,7 +311,9 @@ augroup filetypes
 
     autocmd BufNewFile,BufRead *.io set filetype=io
 
-    " Help vim-commentary out w/ some filetypes
+    " Help vim-commentary out w/ some uncommon filetypes
+    autocmd FileType ocaml setlocal commentstring=(*\ %s\ *)
+    autocmd FileType sml setlocal commentstring=(*\ %s\ *)
     autocmd FileType groovy setlocal commentstring=//\ %s
     autocmd FileType io setlocal commentstring=#\ %s
 
@@ -338,6 +345,11 @@ augroup filetypes
     autocmd filetype ocaml
     \ nnoremap <leader>c :w <bar>
     \ exec '!ocamlc '.shellescape('%') . ' -o ' . shellescape('%:r')' && ./'.shellescape('%:r')<CR>
+
+    autocmd filetype sml
+    \ nnoremap <leader>c :w <bar>
+    \ exec '!rlwrap -rc sml '.shellescape('%')<CR>
+    " \ exec '!sml '.shellescape('%')<CR>
 
     autocmd filetype rust
     \ nnoremap <leader>c :w <bar>
