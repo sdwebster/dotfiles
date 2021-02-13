@@ -226,5 +226,8 @@ gkbf () {
 # See https://thesabbir.com/setting-up-mit-scheme-on-os-x-yosemite-with-homebrew/
 alias sch="rlwrap -r -c -f $DOTFILE_HOME/resources/bobbyno/mit_scheme_bindings.txt scheme"
 
+#### OCaml
+alias ocr="rlwrap -rc ocaml"
+
 #### PostgreSQL
 alias pgsql="postgres -D /usr/local/var/postgres/"
