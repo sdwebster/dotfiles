@@ -1,0 +1,150 @@
+Who this is for, and why
+===
+
+This curation is for you if you have little or no background in vi, but you
+want to learn Emacs Vim Imitation Layer, a.k.a. evil-mode. Maybe you're
+learning evil as part of Spacemacs's "vim editing style" (a less inflammatory
+name, but it's evil-mode under the hood).  Maybe you're using evil-mode in
+plain Emacs (a.k.a.  "pure evil").  Either way, you're going to need to learn
+the basic vi bindings for text navigation and anipulation.
+
+However, you don't care as much about how vim users navigate between files,
+issue advanced commands, or write macro scripts. Emacs handles these as well as
+vim or better, so the vim directory-level commands are less applicable to you.
+
+The built-in "vimtutor" is an excellent intro to vim.  Many other vi materials
+will build upon vimtutor, so they start by telling you to go through vimtutor
+first.  However, "vimtutor" includes a few topics that do not apply to Emacs
+users.
+
+This commentary is designed to help you pick which sections of vimtutor to
+study, and which to skip.
+
+Who else this is for
+===
+
+This curation may also help people learning the vim layer of other text
+editors, such as Vintage mode in Sublime, or IdeaVIM in JetBrains IntelliJ.
+
+A note about overlaps
+===
+
+In evil mode, there is some amount of grey zone overlap where you can use
+either the vi command, or the emacs command, whichever you prefer. When you
+follow this curation, you will learn a couple of vim file-related commands for
+which there exists an emacs equivalent.
+
+E.g., the evil user can close Emacs using either the vim exit command <:wq> or
+the emacs command <C-x C-c>. I include :wq, because a litle overlap is fine,
+and because quitting vim turns out to be a valuable life skill. At the very
+least, you'll need it to get out of vimtutor!
+
+The curation
+===
+
+Get started by opening a terminal and typing
+
+$ vimtutor
+
+Then do this subset of the exercises:
+
+Lesson 1,2,3,4                                 -- DO ALL PARTS
+
+Lesson 5.1: HOW TO EXECUTE AN EXTERNAL COMMAND -- SKIP
+Lesson 5.2: MORE ON WRITING FILES              -- SKIP
+Lesson 5.3: SELECTING TEXT TO WRITE            -- READ, but no need to do
+Lesson 5.4: RETRIEVING AND MERGING FILES       -- SKIP
+
+Lesson 6.1-6.4                                 -- DO THESE PARTS
+Lesson 6.5: SET OPTION                         -- SKIP
+
+Lesson 7.1: GETTING HELP                       -- SKIP
+
+  Instead, make sure you know the emacs help commands, including:
+    C-h f <function name>
+    C-h k <keystroke>
+
+Lesson 7.2: CREATE A STARTUP SCRIPT            -- SKIP
+
+  Instead, you have a dotfile with one of these two names:
+
+    ~/.emacs
+    ~/.emacs.d/init.el
+
+  If applicable, you also a second dotfile called one of these:
+
+    ~/.spacemacs
+    ~/.spacemacs.d/init.el
+
+Lesson 7.3: COMPLETION                         -- READ, but no need to do
+
+  The beginning programmer should learn to love <TAB> completion in all
+  contexts -- bash, text-editor, everywhere. It saves time, speeds up
+  navigation, corrects assumptions, and avoids mistakes like mispellings or
+  opening files that aren't there. Learn to use <TAB> wherever possible.
+
+Further thoughts about approaching vim/evil
+===
+
+A couple key concepts when you approach vim from another
+editor.
+
+1. Vim is a modal editor. This has a learning curve, but turns
+out to be quite powerful. You will use three basic modes:
+
+INSERT MODE
+
+This will feel the most familiar to the beginner. However, you should
+challenge yourself over time to spend as little time in insert mode as
+possible.
+
+COMMAND MODE
+
+This is the default state when you open vim or evil-mode, for good reason. As
+you get better, this will become your mode of maximum comfort and repose.
+
+Using vi, you are like a master painter, sitting back and considering your
+subject.  When you have decided upon your next stroke, you take your brush,
+lean in toward the canvas, and make a quick insertion in the correct spot.
+Then, you withdraw your brush, sit back, and consider where to edit next. The
+"insert mode" was a brief moment that you <Esc> out of as soon as possible.
+
+VISUAL MODE
+
+Use this for highlighting a selection of text that you want to do something
+with (like delete, cut, copy, comment out, indent).
+
+You can highlight with the vim commands (v + navigation), then manipulate with
+the emacs command (like <C-c c> to comment it out).
+
+2. Get to know a couple short, powerful commands.
+
+<.> is your friend, the simplest and most versatile macro. It means, "redo"
+the previous action.
+
+In fact, a good motivation to learn all the nice, succinct actions available in
+vim, is so that you can perform exactly the action that you'll want to redo
+using <.>.
+
+<*> searches for uses of the word under the cursor.
+
+3. Compose commands, and save them in your muscle memory
+
+For example, I often mistype a word by switching up two letters, e.g.
+"spaecmacs". I can correct this by moving my cursor over the 'e' and typing
+<xp>. Someone taught me this once, and I do it more than I'd like to admit!
+
+Similarly, if you want to switch two lines, type <ddp>.
+
+Further reading
+===
+
+The opinions and tips above come from various sources,
+including:
+
+  Drew Neil
+  Practical Vim
+  Pragmatic Programmers, 2012
+
+I highly recommend this book as an intro to the vi text editing paradigm,
+as well as to vim itself.
