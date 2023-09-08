@@ -1,5 +1,9 @@
 A companion to vimtutor for users of evil-mode and other vi emulation layers.
 
+(I mostly abandoned this project once I realized that Spacemacs's built-in
+"eviltutor" does basically the same think, curating the parts relevant to
+Spacemacs.)
+
 Who this is for, and why
 ===
 
